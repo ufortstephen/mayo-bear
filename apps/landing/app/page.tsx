@@ -8,15 +8,36 @@ function Hero() {
     return (
         <div className="bg-[#8205E7] relative w-full max-h-[1013px] h-fit">
             <div className="flex flex-row p-[20px] absolute top-0 w-full">
-                <Image src={'/imgs/logo.png'} width={60} height={60} alt={''} />
+                <Image
+                    src={'/imgs/logo.png'}
+                    width={60}
+                    height={60}
+                    alt={''}
+                    className="cursor-pointer hover:opacity-80"
+                    onClick={() => {
+                        window.location.href = '/'
+                    }}
+                />
                 <div className="flex flex-row ml-auto gap-[10px]">
                     <div
-                        className={`text-black rounded btn btn-ghost px-[24px] py-[12px] capitalize bg-white ${Montserrat.className} font-[700] text-[16px]`}
+                        onClick={() => {
+                            window.open(
+                                'https://t.me/MayoBearCoinETH',
+                                '_blank'
+                            )
+                        }}
+                        className={`text-black rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
                     >
                         Join Telegram
                     </div>
                     <div
-                        className={`text-white rounded btn btn-ghost px-[24px] py-[12px] capitalize bg-[#00A3FF] ${Montserrat.className} font-[700] text-[16px]`}
+                        onClick={() => {
+                            window.open(
+                                'https://twitter.com/MayoBearCoinETH',
+                                '_blank'
+                            )
+                        }}
+                        className={`text-white rounded btn px-[24px] py-[12px] capitalize hover:bg-[#00A3FF] bg-[#00A3FF] ${Montserrat.className} font-[700] text-[16px] hover:opacity-80`}
                     >
                         Follow on X
                     </div>
@@ -26,7 +47,10 @@ function Hero() {
             <Image
                 src={'/imgs/mayobear.png'}
                 alt={''}
-                className="object-cover overflow-visible mx-auto w-full h-full max-w-[1920px]"
+                className="object-cover overflow-visible mx-auto w-full h-full max-w-[1920px] cursor-pointer"
+                // onClick={() => {
+                //     window.open('https://mayobear.xyz', '_blank')
+                // }}
                 width={4096}
                 height={2652}
             />
@@ -148,13 +172,15 @@ function Socials() {
                 width={112}
                 height={22}
             />
-            <a
-                href="https://t.me/MayoBearCoinETH"
-                className={`${Montserrat.className} w-[239px] shadow cursor-pointer flex flex-rol gap-[10px] px-[24px] py-[12px] rounded-full bg-[#FFF8E5] text-black text-[16px] font-700]`}
+            <div
+                onClick={() => {
+                    window.open('https://twitter.com/MayoBearCoinETH', '_blank')
+                }}
+                className={`${Montserrat.className} btn cursor-pointer shadow-xl flex flex-row gap-[10px] px-[24px] py-[12px] rounded-full bg-[#FFF8E5] text-black hover:bg-[#FFF8E5] text-[16px] font-[700] border-none capitalize hover:opacity-80`}
             >
                 <Image width={26} height={26} src={'/icons/x.svg'} alt={''} />
                 MayoBearCoinETH
-            </a>
+            </div>
         </div>
     )
 }
