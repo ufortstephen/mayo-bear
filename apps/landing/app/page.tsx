@@ -201,7 +201,7 @@ function Socials() {
 
 export default function Home() {
     return (
-        <div className="flex flex-col min-h-screen w-full items-center gap-[120px] h-[100px] overflow-y-scroll pb-[183px]">
+        <div className="flex flex-col overflow-x-hidden min-h-screen w-full items-center gap-[120px] h-[100px] overflow-y-scroll pb-[183px]">
             <Hero />
             <Info />
             <Artworks />
