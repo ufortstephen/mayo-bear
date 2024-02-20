@@ -171,7 +171,16 @@ function App() {
             >
                 <div>Join our</div> <div className="mt-[-33px]">Ecosystem</div>
             </div>
-            <Image src={'/imgs/app.png'} alt={''} width={328} height={652} />
+            <Image
+                onClick={() => {
+                    window.location.href = 'https://purplesquare.ai/'
+                }}
+                className="cursor-pointer"
+                src={'/imgs/app.png'}
+                alt={''}
+                width={328}
+                height={652}
+            />
         </div>
     )
 }
