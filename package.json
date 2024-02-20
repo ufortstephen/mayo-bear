@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "dev:landing": "turbo run dev --scope landing",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.ts\" && eslint . --ext .ts"
+  },
+  "devDependencies": {
+    "eslint": "^8.51.0",
+    "eslint-config-next": "13.3.2",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.2.2",
+    "tsconfig": "^7.0.0",
+    "turbo": "latest"
+  },
+  "name": "mayobear-ui-mono",
+  "dependencies": {
+    "pnpm": "^8.9.2"
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "css.validate": false,
+    "editor.codeActionsOnSave": [
+        "source.formatDocument",
+        "source.fixAll.eslint"
+    ],
+    "prettier.tabWidth": 4,
+    "editor.tabSize": 4,
+    "editor.wordWrap": "on",
+    "[yaml]": {
+        "editor.tabSize": 4
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ]
+}
