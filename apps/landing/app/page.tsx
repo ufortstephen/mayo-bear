@@ -7,7 +7,7 @@ import { Montserrat, Skincake } from '@/styles/fonts'
 function Hero() {
     return (
         <div className="bg-[#8205E7] relative w-full max-h-[1013px] h-fit">
-            <div className="flex flex-row p-[20px] absolute top-0 w-full">
+            <div className="hidden md:flex flex-row p-[20px] absolute top-0 w-full">
                 <Image
                     src={'/imgs/logo.png'}
                     width={60}
@@ -43,14 +43,17 @@ function Hero() {
                     </div>
                 </div>
             </div>
-            {/* Adjust the padding-bottom to control the aspect ratio */}
+            <Image
+                src={'/imgs/mayobear-mobile.png'}
+                alt={''}
+                className="object-cover overflow-visible mx-auto w-full h-full sm:hidden"
+                width={1170}
+                height={2342}
+            />
             <Image
                 src={'/imgs/mayobear.png'}
                 alt={''}
-                className="object-cover overflow-visible mx-auto w-full h-full max-w-[1920px] cursor-pointer"
-                // onClick={() => {
-                //     window.open('https://mayobear.xyz', '_blank')
-                // }}
+                className="hidden sm:flex object-cover overflow-visible mx-auto w-full h-full max-w-[1920px]"
                 width={4096}
                 height={2652}
             />
@@ -60,7 +63,7 @@ function Hero() {
 
 function Info() {
     return (
-        <div className="flex flex-row w-full max-w-[1186px]">
+        <div className="flex flex-col px-[32px] lg:px-0 lg:flex-row w-full max-w-[1186px] gap-[60px]">
             <div
                 className={`${Montserrat.className} text-[14px] font-[600] leading-[32px] text-[#100] max-w-[436px]`}
             >
@@ -82,9 +85,9 @@ function Info() {
                 on the front lines in the midst of all-out war. Mayo Bear is
                 always there!
             </div>
-            <div className="my-auto ml-auto">
+            <div className="mx-auto my-auto lg:ml-auto">
                 <PictureFrame
-                    className="w-[513px] h-[513px] rotate-6 shadow-2xl border-[23px]"
+                    className="w-full h-full lg:max-w-[513px] lg:max-h-[513px] rotate-6 shadow-2xl border-[23px]"
                     img={'/imgs/art-6.jpeg'}
                 />
             </div>
@@ -95,7 +98,7 @@ function Info() {
 function PictureFrame({ img, className }: { img: string; className?: string }) {
     return (
         <div
-            className={`${className} w-[332.41px] h-[332.41px] border-[13px] shadow-xl border-white`}
+            className={`${className} w-[332.41px] border-[13px] shadow-md border-white`}
         >
             <Image
                 src={img}
@@ -128,19 +131,30 @@ function Artworks() {
                     You'll own nothing and be happy!
                 </div>
             </div>
-            <div className="flex flex-row gap-[-20px] mx-auto">
-                <PictureFrame img={'/imgs/art-6.jpeg'} />
-                <PictureFrame className="rotate-6" img={'/imgs/art-5.jpeg'} />
-                <PictureFrame img={'/imgs/art-4.jpeg'} />
-                <PictureFrame className="rotate-6" img={'/imgs/art-3.jpeg'} />
-                <PictureFrame
-                    className="rotate-[353deg]"
-                    img={'/imgs/art-2.png'}
-                />
-                <PictureFrame
-                    className="rotate-[353deg]"
-                    img={'/imgs/art-1.jpeg'}
-                />
+            <div className="lg:mx-auto carousel">
+                <div className="flex flex-nowrap py-[33px] gap-[-20px]">
+                    <PictureFrame
+                        className="hidden lg:flex"
+                        img={'/imgs/art-6.jpeg'}
+                    />
+                    <PictureFrame
+                        className="rotate-6"
+                        img={'/imgs/art-5.jpeg'}
+                    />
+                    <PictureFrame img={'/imgs/art-4.jpeg'} />
+                    <PictureFrame
+                        className="rotate-6"
+                        img={'/imgs/art-3.jpeg'}
+                    />
+                    <PictureFrame
+                        className="rotate-[353deg]"
+                        img={'/imgs/art-2.png'}
+                    />
+                    <PictureFrame
+                        className="rotate-[353deg]"
+                        img={'/imgs/art-1.jpeg'}
+                    />
+                </div>
             </div>
         </div>
     )
