@@ -74,9 +74,9 @@ function Info() {
                 into a best AI-generated meme.
                 <br />
                 <br />
-                Soon to be powered by the $MAYO token, this large polar bear,
-                adorned for his special Mayo, embodies a blend of perseverance
-                and good times.
+                Soon to be powered by the [REDACTED] token, this large polar
+                bear, adorned for his special Mayo, embodies a blend of
+                perseverance and good times.
                 <br />
                 <br />
                 Affectionately called Mayo, he dives into a variety of
