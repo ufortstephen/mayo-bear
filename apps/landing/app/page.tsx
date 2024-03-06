@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Montserrat, Skincake } from '@/styles/fonts'
+import MayoBtn from '@/components/MayoBtn'
 
 function Hero() {
     return (
@@ -48,7 +49,7 @@ function Hero() {
                             //     '_blank'
                             // )
                         }}
-                        className={`text-black rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
+                        className={`text-black rounded btn px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
                     >
                         Roadmap
                     </div>
@@ -108,10 +109,44 @@ function Hero() {
             <Image
                 src={'/imgs/mayobear.png'}
                 alt={''}
-                className="hidden sm:flex object-cover overflow-visible mx-auto w-full h-full max-w-[1920px]"
+                className="hidden sm:flex object-cover overflow-visible mx-auto w-full h-full max-w-[1512px]"
                 width={4096}
                 height={2652}
             />
+            {/* <div className="absolute w-[317px] md:w-[494px] left-1/2 transform -translate-x-[51%] bottom-[23px] md:bottom-[20px]lg:bottom-[30px] xl:bottom-[0px] 2xl:bottom-[-36px] flex flex-col gap-[8px]"> */}
+            <div className="w-[317px] md:w-[494px] -mt-[166px] sm:-mt-[96px] md:-mt-[130px] lg:-mt-[113px]  mx-auto flex flex-col gap-[8px]">
+                <MayoBtn />
+                <div className="flex gap-[24px] w-full justify-center">
+                    <Image
+                        className="cursor-pointer"
+                        src={'/icons/dexscreener.png'}
+                        alt={''}
+                        width={21.88}
+                        height={26}
+                    />
+                    <Image
+                        className="cursor-pointer"
+                        src={'/icons/etherscan.png'}
+                        alt={''}
+                        width={26}
+                        height={26}
+                    />
+                    <Image
+                        className="cursor-pointer"
+                        src={'/icons/dex.png'}
+                        alt={''}
+                        width={22.6}
+                        height={26}
+                    />
+                    <Image
+                        className="cursor-pointer"
+                        src={'/icons/x.png'}
+                        alt={''}
+                        width={26}
+                        height={26}
+                    />
+                </div>
+            </div>
         </div>
     )
 }
@@ -185,7 +220,7 @@ function PictureFrame({ img, className }: { img: string; className?: string }) {
 
 function Artworks() {
     return (
-        <div className="flex flex-col w-full">
+        <div className="gap-[61px] flex flex-col w-full">
             <div className="flex flex-col gap-[12px] mx-auto">
                 <div
                     style={{
@@ -197,19 +232,68 @@ function Artworks() {
                     Our Artworks
                 </div>
                 <div
-                    className={`${Montserrat.className} font-[700] text-[14px] text-black text-center`}
+                    className={`${Montserrat.className} font-[700] text-[16px] text-center text-[#BFBFBF]`}
                 >
                     {' '}
                     From our community prompt engineers
                 </div>
             </div>
-            <div className="w-screen h-[900px] bg-cover relative">
-                <div className="absolute inset-0 bg-[url('/imgs/strip-muted.png')] bg-cover" />
-                <div className="absolute inset-0 bg-[url('/imgs/strip.png')] bg-cover" />
+            <div className="lg:mx-auto carousel">
+                <div className="flex flex-nowrap py-[33px] gap-[-20px]">
+                    <PictureFrame
+                        className="hidden lg:flex"
+                        img={'/imgs/art-6.jpeg'}
+                    />
+                    <PictureFrame
+                        className="rotate-6"
+                        img={'/imgs/art-5.jpeg'}
+                    />
+                    <PictureFrame img={'/imgs/art-4.jpeg'} />
+                    <PictureFrame
+                        className="rotate-6"
+                        img={'/imgs/art-3.jpeg'}
+                    />
+                    <PictureFrame
+                        className="rotate-[353deg]"
+                        img={'/imgs/art-2.png'}
+                    />
+                    <PictureFrame
+                        className="rotate-[353deg]"
+                        img={'/imgs/art-1.jpeg'}
+                    />
+                </div>
             </div>
         </div>
     )
 }
+
+// function Artworks() {
+//     return (
+//         <div className="flex flex-col w-full">
+//             <div className="flex flex-col gap-[12px] mx-auto">
+//                 <div
+//                     style={{
+//                         textShadow: ' 0px 5px 15px rgba(68, 70, 87, 0.30);',
+//                     }}
+//                     className={`${Skincake.className} text-[90px] text-center`}
+//                 >
+//                     {' '}
+//                     Our Artworks
+//                 </div>
+//                 <div
+//                     className={`${Montserrat.className} font-[700] text-[14px] text-black text-center`}
+//                 >
+//                     {' '}
+//                     From our community prompt engineers
+//                 </div>
+//             </div>
+//             <div className="w-screen h-[900px] bg-cover relative">
+//                 <div className="absolute inset-0 bg-[url('/imgs/strip-muted.png')] bg-cover" />
+//                 <div className="absolute inset-0 bg-[url('/imgs/strip.png')] bg-cover" />
+//             </div>
+//         </div>
+//     )
+// }
 
 const PurpleSquare = () => {
     return (
