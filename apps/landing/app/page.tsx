@@ -549,7 +549,7 @@ const TokenomicsItem = ({
                 {title}
             </div>
             <div
-                className={`${Montserrat.className} text-[14px] font-[600] color-[#100]`}
+                className={`${Montserrat.className} text-[14px] font-[600] color-[#100] whitespace-nowrap`}
             >
                 {description}
             </div>
@@ -559,7 +559,10 @@ const TokenomicsItem = ({
 
 function Mayonomics() {
     return (
-        <div className="flex flex-col gap-[93px] w-full" id="MAYONOMICS">
+        <div
+            className="flex flex-col gap-[93px] w-full max-w-[1790px]"
+            id="MAYONOMICS"
+        >
             <div className="flex flex-col gap-[12px] mx-auto">
                 <div
                     style={{
@@ -594,7 +597,7 @@ function Mayonomics() {
                 </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-[64px] lg:mx-auto carousel">
+            <div className="flex flex-col lg:flex-row gap-[64px] lg:mx-auto carousel overflow-x-scroll">
                 <TokenomicsItem title="Farmable on X" description="Airdrop" />
                 <TokenomicsItem
                     title="Locked & Renounced"
