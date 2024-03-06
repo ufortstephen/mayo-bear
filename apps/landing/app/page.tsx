@@ -190,25 +190,18 @@ function Info() {
             <div
                 className={`${Montserrat.className} text-[14px] font-[600] leading-[32px] text-[#100] max-w-[436px]`}
             >
-                Mayo Bear <br />
-                <br />
-                Mayo Bear is deeply committed to empowering opensource
-                development, especially projects that harness the power of the
-                Purple AI engine. Our vision is to support initiatives that not
-                only leverage this innovative engine but also embody values of
-                equality, justice, transparency, and autonomy.
-                <br />
-                <br />
-                If your project shares these ideals and utilizes Purple AI to
-                distinguish itself in the market, we are eager to stand by you,
-                promoting your efforts as part of our broader mission.
+                Mayo Bear, The native AI-generated meme birthed by the Purple AI
+                community, for the community to further elevate the PAIverse by
+                harnessing the power of $MAYO. At the core of our endeavor is a
+                love letter to the Purple AI community and the project as a
+                whole, along with bringing awareness to those who have not had
+                the luxury to venture into the Purple AI ecosystem.
                 <br />
                 <br />
-                Join our movement as we employ the $MAYO token to fund and
-                nurture projects developed within the Purple AI system. This
-                commitment goes beyond mere technological advancement; it is
-                about fostering a culture of decentralization, striving for a
-                future where liberation and innovation are unrestrained.
+                Join our movement, for the culture as we employ the $MAYO to
+                bring this vision to reality. The era of frogs and dogs is
+                coming to an end. We know exactly what you want and we are about
+                to give it to you.
                 <div
                     onClick={() => {
                         // window.open('https://twitter.com/MayoBearCoinETH', '_blank')
@@ -636,6 +629,7 @@ export default function Home() {
     return (
         <div className="relative flex flex-col min-h-screen w-full items-center overflow-x-hidden gap-[106px] h-[100px] overflow-y-scroll pb-[183px]">
             <Hero />
+            <div className="xl:mt-[90px]"></div>
             <Info />
             <Mayonomics />
             <Artworks />
