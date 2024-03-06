@@ -141,11 +141,26 @@ function Info() {
                 commitment goes beyond mere technological advancement; it is
                 about fostering a culture of decentralization, striving for a
                 future where liberation and innovation are unrestrained.
+                <div
+                    onClick={() => {
+                        // window.open('https://twitter.com/MayoBearCoinETH', '_blank')
+                    }}
+                    className={`${Montserrat.className} mt-[30px] w-[237px] whitespace-nowrap btn cursor-pointer shadow-xl flex flex-row gap-[10px] px-[24px] py-[12px] rounded-full bg-[#FFF8E5] text-black hover:bg-[#FFF8E5] text-[16px] font-[700] border-none capitalize hover:opacity-80`}
+                >
+                    <Image
+                        width={24}
+                        height={24}
+                        src={'/icons/telegram.svg'}
+                        alt={''}
+                    />
+                    MayoBearCoinETH
+                </div>
             </div>
+
             <div className="mx-auto my-auto lg:ml-auto">
                 <PictureFrame
-                    className="w-full h-full lg:max-w-[513px] lg:max-h-[513px] rotate-6 shadow-2xl border-[23px]"
-                    img={'/imgs/green.jpeg'}
+                    className="w-full h-full lg:w-[513px] lg:h-[513px] rotate-6 shadow-2xl border-[23px]"
+                    img={'/imgs/mayo-space.jpeg'}
                 />
             </div>
         </div>
@@ -226,7 +241,7 @@ const TimelineDesktop = () => {
                         Mayo Swap
                     </div>
                     <div className="text-sm font-semibold leading-8 whitespace-nowrap text-stone-950">
-                        You'll own nothing and be happy!
+                        The special sauce
                     </div>
                     <div
                         className={`${Skincake.className} text-transparent bg-clip-text bg-[linear-gradient(0deg,#8000E4_0%,#962DFE_100%)] mt-[283px] text-[46px]`}
@@ -411,8 +426,8 @@ function Socials() {
                 className={`${Montserrat.className} btn cursor-pointer shadow-xl flex flex-row gap-[10px] px-[24px] py-[12px] rounded-full bg-[#FFF8E5] text-black hover:bg-[#FFF8E5] text-[16px] font-[700] border-none capitalize hover:opacity-80`}
             >
                 <Image
-                    width={26}
-                    height={26}
+                    width={24}
+                    height={24}
                     src={'/icons/telegram.svg'}
                     alt={''}
                 />
@@ -502,7 +517,7 @@ function Mayonomics() {
                 />
                 <TokenomicsItem
                     title="from Mayo Sell Tax"
-                    description="Auto Buy back and Burn"
+                    description="Auto $PAI Buy back and Burn"
                 />
                 <TokenomicsItem
                     title="from Mayo Sell tax"
@@ -516,7 +531,7 @@ function Mayonomics() {
                     title="TBA"
                     description={
                         <>
-                            MAYO BUY BUY <br /> AND BURN
+                            $MAYO Buy Back <br /> And Burn
                         </>
                     }
                 />
