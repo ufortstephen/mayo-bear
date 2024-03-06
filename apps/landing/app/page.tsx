@@ -7,7 +7,7 @@ import MayoBtn from '@/components/MayoBtn'
 
 function Hero() {
     return (
-        <div className="bg-[#8205E7] relative w-full max-h-[1013px] h-fit">
+        <div className="bg-[#8205E7] relative w-full max-h-[1013px]">
             <div className="hidden md:flex flex-row p-[20px] absolute top-0 w-full">
                 <Image
                     src={'/imgs/logo.png'}
@@ -99,6 +99,16 @@ function Hero() {
                     </div> */}
                 </div>
             </div>
+            <div className="h-[1113px] hidden sm:flex overflow-x-hidden">
+                <Image
+                    src={'/imgs/mayobear.png'}
+                    alt={''}
+                    className="object-cover object-center mx-auto h-full max-w-[1512px]"
+                    style={{ width: '100%', height: 'auto' }}
+                    width={4096}
+                    height={2652}
+                />
+            </div>
             <Image
                 src={'/imgs/mayobear-mobile.png'}
                 alt={''}
@@ -106,15 +116,16 @@ function Hero() {
                 width={1170}
                 height={2342}
             />
-            <Image
+            {/* <Image
                 src={'/imgs/mayobear.png'}
                 alt={''}
                 className="hidden sm:flex object-cover overflow-visible mx-auto w-full h-full max-w-[1512px]"
                 width={4096}
                 height={2652}
-            />
+            /> */}
+
             {/* <div className="absolute w-[317px] md:w-[494px] left-1/2 transform -translate-x-[51%] bottom-[23px] md:bottom-[20px]lg:bottom-[30px] xl:bottom-[0px] 2xl:bottom-[-36px] flex flex-col gap-[8px]"> */}
-            <div className="w-[317px] md:w-[494px] -mt-[166px] sm:-mt-[96px] md:-mt-[130px] lg:-mt-[113px]  mx-auto flex flex-col gap-[8px]">
+            <div className="w-[317px] md:w-[494px] -mt-[166px] sm:-mt-[186px] lg:-mt-[166px]  mx-auto flex flex-col gap-[8px]">
                 <MayoBtn />
                 <div className="flex gap-[24px] w-full justify-center">
                     <Image
@@ -626,7 +637,7 @@ function Mayonomics() {
 
 export default function Home() {
     return (
-        <div className="relative flex flex-col overflow-x-hidden min-h-screen w-full items-center gap-[106px] h-[100px] overflow-y-scroll pb-[183px]">
+        <div className="relative flex flex-col min-h-screen w-full items-center gap-[106px] h-[100px] overflow-y-scroll pb-[183px]">
             <Hero />
             <Info />
             <Mayonomics />
