@@ -204,7 +204,7 @@ function Info() {
                 to give it to you.
                 <div
                     onClick={() => {
-                        // window.open('https://twitter.com/MayoBearCoinETH', '_blank')
+                        window.open('https://t.me/MayoBearCoinETH', '_blank')
                     }}
                     className={`${Montserrat.className} mt-[30px] w-[237px] whitespace-nowrap btn cursor-pointer shadow-xl flex flex-row gap-[10px] px-[24px] py-[12px] rounded-full bg-[#FFF8E5] text-black hover:bg-[#FFF8E5] text-[16px] font-[700] border-none capitalize hover:opacity-80`}
                 >
