@@ -64,10 +64,10 @@ function Hero() {
                     </div>
                     <div
                         onClick={() => {
-                            // window.open(
-                            //     'https://t.me/MayoBearCoinETH',
-                            //     '_blank'
-                            // )
+                            window.open(
+                                'https://t.me/MayoBearCoinETH',
+                                '_blank'
+                            )
                         }}
                         className={`text-white rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-black ${Montserrat.className} font-[700] text-[16px]`}
                     >
@@ -273,7 +273,7 @@ function Artworks() {
                     style={{
                         textShadow: ' 0px 5px 15px rgba(68, 70, 87, 0.30);',
                     }}
-                    className={`${Skincake.className} xl:flex gap-[8px] text-[76px] lg:text-[90px] text-center`}
+                    className={`${Skincake.className} xl:flex gap-[8px] text-[56px] lg:text-[90px] text-center`}
                 >
                     {' '}
                     Our <div className="-mt-[36px] md:-mt-0">Artworks</div>
@@ -392,12 +392,12 @@ const TimelineMobile = () => {
                 </div>
                 <div className="flex flex-col flex-1 my-auto text-5xl text-center text-[46px]">
                     <div
-                        className={`${Skincake.className} whitespace-nowrap text-[46px] leading-[52px]`}
+                        className={`${Skincake.className} whitespace-nowrap text-[32px] leading-[52px]`}
                     >
                         Donate for the
                     </div>
                     <div
-                        className={`${Skincake.className} mt-[-22px] whitespace-nowrap text-[46px] leading-[52px]`}
+                        className={`${Skincake.className} mt-[-22px] whitespace-nowrap text-[32px] leading-[52px]`}
                     >
                         Culture
                     </div>
@@ -405,15 +405,15 @@ const TimelineMobile = () => {
                         You'll own nothing and be happy!
                     </div>
                     <div
-                        className={`mt-[83px] text-[46px] ${Skincake.className}`}
+                        className={`mt-[83px] text-[32px] ${Skincake.className}`}
                     >
                         Token Launch
                     </div>
                     <div className="text-sm font-semibold leading-8 whitespace-nowrap text-stone-950">
-                        $MAYO makes his first mark on the market
+                        $MAYO makes his first mark <br /> on the market
                     </div>
                     <div
-                        className={`mt-[113px] text-[46px] ${Skincake.className}`}
+                        className={`mt-[93px] text-[32px] ${Skincake.className}`}
                     >
                         Mayo Swap
                     </div>
@@ -421,7 +421,7 @@ const TimelineMobile = () => {
                         You'll own nothing and be happy!
                     </div>
                     <div
-                        className={`mt-[113px] max-md:mt-10 text-[46px] ${Skincake.className}`}
+                        className={`mt-[133px] max-md:mt-10 text-[32px] ${Skincake.className}`}
                     >
                         CEX Listings
                     </div>
@@ -430,7 +430,7 @@ const TimelineMobile = () => {
                         happy!
                     </div>
                     <div
-                        className={`${Skincake.className} mt-[83px] text-[46px]`}
+                        className={`${Skincake.className} mt-[93px] text-[32px]`}
                     >
                         MAYO Grants
                     </div>
@@ -452,7 +452,7 @@ function Roadmap() {
                     style={{
                         textShadow: ' 0px 5px 15px rgba(68, 70, 87, 0.30);',
                     }}
-                    className={`${Skincake.className} text-[90px] mx-auto`}
+                    className={`${Skincake.className} text-[56px] xl:text-[90px] mx-auto`}
                 >
                     Roadmap
                 </div>
@@ -479,7 +479,7 @@ function App() {
                 style={{
                     textShadow: '0px 5px 15px rgba(68, 70, 87, 0.30);',
                 }}
-                className={`${Skincake.className} text-[76px] xl:text-[90px] text-center flex flex-col`}
+                className={`${Skincake.className} text-[56px] xl:text-[90px] text-center flex flex-col`}
             >
                 <div>Join our</div> <div className="mt-[-33px]">Ecosystem</div>
             </div>
@@ -565,7 +565,7 @@ function Mayonomics() {
                     style={{
                         textShadow: ' 0px 5px 15px rgba(68, 70, 87, 0.30);',
                     }}
-                    className={`${Skincake.className} text-[76px] xl:text-[90px]`}
+                    className={`${Skincake.className} text-[56px] xl:text-[90px]`}
                 >
                     {' '}
                     Mayonomics
@@ -631,7 +631,7 @@ function Mayonomics() {
 
 export default function Home() {
     return (
-        <div className="relative flex flex-col min-h-screen w-full items-center gap-[106px] h-[100px] overflow-y-scroll pb-[183px]">
+        <div className="relative flex flex-col min-h-screen w-full items-center overflow-x-hidden gap-[106px] h-[100px] overflow-y-scroll pb-[183px]">
             <Hero />
             <Info />
             <Mayonomics />
