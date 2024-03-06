@@ -8,7 +8,7 @@ import MayoBtn from '@/components/MayoBtn'
 function Hero() {
     return (
         <div className="bg-[#8205E7] relative w-full max-h-[1013px]">
-            <div className="hidden md:flex flex-row p-[20px] absolute top-0 w-full">
+            <div className="flex flex-row p-[20px] absolute top-0 w-full">
                 <Image
                     src={'/imgs/logo.png'}
                     width={60}
@@ -27,7 +27,7 @@ function Hero() {
                                 '_blank'
                             )
                         }}
-                        className={`text-black rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
+                        className={`hidden md:flex text-black rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
                     >
                         Mayo Swap
                     </div>
@@ -38,7 +38,7 @@ function Hero() {
                                 '_blank'
                             )
                         }}
-                        className={`text-black rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
+                        className={`hidden md:flex text-black rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
                     >
                         Vote
                     </div>
@@ -48,7 +48,7 @@ function Hero() {
                                 .getElementById('ROADMAP')
                                 ?.scrollIntoView({ behavior: 'smooth' })
                         }}
-                        className={`text-black rounded btn px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
+                        className={`hidden md:flex text-black rounded btn px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
                     >
                         Roadmap
                     </div>
@@ -58,7 +58,7 @@ function Hero() {
                                 .getElementById('MAYONOMICS')
                                 ?.scrollIntoView({ behavior: 'smooth' })
                         }}
-                        className={`text-black rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
+                        className={`hidden md:flex text-black rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
                     >
                         Mayonomics
                     </div>
@@ -69,7 +69,7 @@ function Hero() {
                                 '_blank'
                             )
                         }}
-                        className={`text-white rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-black ${Montserrat.className} font-[700] text-[16px]`}
+                        className={`flex max-w-[81px] text-white rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-black ${Montserrat.className} font-[700] text-[16px]`}
                     >
                         Buy
                     </div>
