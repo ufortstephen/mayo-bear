@@ -22,10 +22,10 @@ function Hero() {
                 <div className="flex flex-row ml-auto gap-[10px]">
                     <div
                         onClick={() => {
-                            // window.open(
-                            //     'https://t.me/MayoBearCoinETH',
-                            //     '_blank'
-                            // )
+                            window.open(
+                                'https://t.me/MayoBearCoinETH',
+                                '_blank'
+                            )
                         }}
                         className={`text-black rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
                     >
@@ -33,10 +33,10 @@ function Hero() {
                     </div>
                     <div
                         onClick={() => {
-                            // window.open(
-                            //     'https://t.me/MayoBearCoinETH',
-                            //     '_blank'
-                            // )
+                            window.open(
+                                'https://t.me/MayoBearCoinETH',
+                                '_blank'
+                            )
                         }}
                         className={`text-black rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
                     >
@@ -44,10 +44,9 @@ function Hero() {
                     </div>
                     <div
                         onClick={() => {
-                            // window.open(
-                            //     'https://t.me/MayoBearCoinETH',
-                            //     '_blank'
-                            // )
+                            document
+                                .getElementById('ROADMAP')
+                                ?.scrollIntoView({ behavior: 'smooth' })
                         }}
                         className={`text-black rounded btn px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
                     >
@@ -55,10 +54,9 @@ function Hero() {
                     </div>
                     <div
                         onClick={() => {
-                            // window.open(
-                            //     'https://t.me/MayoBearCoinETH',
-                            //     '_blank'
-                            // )
+                            document
+                                .getElementById('MAYONOMICS')
+                                ?.scrollIntoView({ behavior: 'smooth' })
                         }}
                         className={`text-black rounded btn  px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-white ${Montserrat.className} font-[700] text-[16px]`}
                     >
@@ -129,28 +127,52 @@ function Hero() {
                 <MayoBtn />
                 <div className="flex gap-[24px] w-full justify-center">
                     <Image
-                        className="cursor-pointer"
+                        onClick={() => {
+                            window.open(
+                                'https://dexscreener.com/ethereum/0xCBCbad3b2340FEd311a693dFe5B97bD187046C71',
+                                '_blank'
+                            )
+                        }}
+                        className="cursor-pointer hover:opacity-80"
                         src={'/icons/dexscreener.png'}
                         alt={''}
                         width={21.88}
                         height={26}
                     />
                     <Image
-                        className="cursor-pointer"
+                        onClick={() => {
+                            window.open(
+                                'https://etherscan.io/address/0xCBCbad3b2340FEd311a693dFe5B97bD187046C71',
+                                '_blank'
+                            )
+                        }}
+                        className="cursor-pointer hover:opacity-80"
                         src={'/icons/etherscan.png'}
                         alt={''}
                         width={26}
                         height={26}
                     />
                     <Image
-                        className="cursor-pointer"
+                        onClick={() => {
+                            window.open(
+                                'https://www.dextools.io/app/en/ether/pair-explorer/0xCBCbad3b2340FEd311a693dFe5B97bD187046C71',
+                                '_blank'
+                            )
+                        }}
+                        className="cursor-pointer hover:opacity-80"
                         src={'/icons/dex.png'}
                         alt={''}
                         width={22.6}
                         height={26}
                     />
                     <Image
-                        className="cursor-pointer"
+                        onClick={() => {
+                            window.open(
+                                'https://twitter.com/MayoBearCoinETH',
+                                '_blank'
+                            )
+                        }}
+                        className="cursor-pointer hover:opacity-80"
                         src={'/icons/x.png'}
                         alt={''}
                         width={26}
@@ -229,6 +251,20 @@ function PictureFrame({ img, className }: { img: string; className?: string }) {
     )
 }
 
+function RedactedPictureFrame({ className }: { className?: string }) {
+    return (
+        <div
+            className={`${className} w-[332.41px] h-[332.41px] border-[13px] shadow-md border-white`}
+        >
+            <div
+                className={`w-full h-full flex text-[#FFF8E5] bg-black ${Skincake.className} m-auto`}
+            >
+                <div className="m-auto">(REDACTED)</div>
+            </div>
+        </div>
+    )
+}
+
 function Artworks() {
     return (
         <div className="gap-[61px] flex flex-col w-full">
@@ -237,10 +273,10 @@ function Artworks() {
                     style={{
                         textShadow: ' 0px 5px 15px rgba(68, 70, 87, 0.30);',
                     }}
-                    className={`${Skincake.className} text-[90px] text-center`}
+                    className={`${Skincake.className} xl:flex gap-[8px] text-[76px] lg:text-[90px] text-center`}
                 >
                     {' '}
-                    Our Artworks
+                    Our <div className="-mt-[36px] md:-mt-0">Artworks</div>
                 </div>
                 <div
                     className={`${Montserrat.className} font-[700] text-[16px] text-center text-[#BFBFBF]`}
@@ -251,60 +287,17 @@ function Artworks() {
             </div>
             <div className="lg:mx-auto carousel">
                 <div className="flex flex-nowrap py-[33px] gap-[-20px]">
-                    <PictureFrame
-                        className="hidden lg:flex"
-                        img={'/imgs/art-6.jpeg'}
-                    />
-                    <PictureFrame
-                        className="rotate-6"
-                        img={'/imgs/art-5.jpeg'}
-                    />
-                    <PictureFrame img={'/imgs/art-4.jpeg'} />
-                    <PictureFrame
-                        className="rotate-6"
-                        img={'/imgs/art-3.jpeg'}
-                    />
-                    <PictureFrame
-                        className="rotate-[353deg]"
-                        img={'/imgs/art-2.png'}
-                    />
-                    <PictureFrame
-                        className="rotate-[353deg]"
-                        img={'/imgs/art-1.jpeg'}
-                    />
+                    <RedactedPictureFrame className="hidden lg:flex" />
+                    <RedactedPictureFrame className="rotate-6" />
+                    <RedactedPictureFrame />
+                    <RedactedPictureFrame className="rotate-6" />
+                    <RedactedPictureFrame className="rotate-[353deg]" />
+                    <RedactedPictureFrame className="rotate-[353deg]" />
                 </div>
             </div>
         </div>
     )
 }
-
-// function Artworks() {
-//     return (
-//         <div className="flex flex-col w-full">
-//             <div className="flex flex-col gap-[12px] mx-auto">
-//                 <div
-//                     style={{
-//                         textShadow: ' 0px 5px 15px rgba(68, 70, 87, 0.30);',
-//                     }}
-//                     className={`${Skincake.className} text-[90px] text-center`}
-//                 >
-//                     {' '}
-//                     Our Artworks
-//                 </div>
-//                 <div
-//                     className={`${Montserrat.className} font-[700] text-[14px] text-black text-center`}
-//                 >
-//                     {' '}
-//                     From our community prompt engineers
-//                 </div>
-//             </div>
-//             <div className="w-screen h-[900px] bg-cover relative">
-//                 <div className="absolute inset-0 bg-[url('/imgs/strip-muted.png')] bg-cover" />
-//                 <div className="absolute inset-0 bg-[url('/imgs/strip.png')] bg-cover" />
-//             </div>
-//         </div>
-//     )
-// }
 
 const PurpleSquare = () => {
     return (
@@ -453,7 +446,7 @@ const TimelineMobile = () => {
 
 function Roadmap() {
     return (
-        <div className="gap-[61px] flex flex-col w-full">
+        <div className="gap-[61px] flex flex-col w-full" id="ROADMAP">
             <div className="flex flex-col gap-[9px] mx-auto">
                 <div
                     style={{
@@ -486,7 +479,7 @@ function App() {
                 style={{
                     textShadow: '0px 5px 15px rgba(68, 70, 87, 0.30);',
                 }}
-                className={`${Skincake.className} text-[90px] text-center flex flex-col`}
+                className={`${Skincake.className} text-[76px] xl:text-[90px] text-center flex flex-col`}
             >
                 <div>Join our</div> <div className="mt-[-33px]">Ecosystem</div>
             </div>
@@ -516,7 +509,8 @@ function Socials() {
             />
             <div
                 onClick={() => {
-                    // window.open('https://twitter.com/MayoBearCoinETH', '_blank')
+                    // telegram
+                    window.open('https://t.me/MayoBearCoinETH', '_blank')
                 }}
                 className={`${Montserrat.className} btn cursor-pointer shadow-xl flex flex-row gap-[10px] px-[24px] py-[12px] rounded-full bg-[#FFF8E5] text-black hover:bg-[#FFF8E5] text-[16px] font-[700] border-none capitalize hover:opacity-80`}
             >
@@ -530,7 +524,7 @@ function Socials() {
             </div>
             <div
                 onClick={() => {
-                    // window.open('https://twitter.com/MayoBearCoinETH', '_blank')
+                    window.open('https://twitter.com/MayoBearCoinETH', '_blank')
                 }}
                 className={`${Montserrat.className} btn cursor-pointer shadow-xl flex flex-row gap-[10px] px-[24px] py-[12px] rounded-full bg-[#FFF8E5] text-black hover:bg-[#FFF8E5] text-[16px] font-[700] border-none lowercase hover:opacity-80`}
             >
@@ -565,13 +559,13 @@ const TokenomicsItem = ({
 
 function Mayonomics() {
     return (
-        <div className="flex flex-col gap-[93px] w-full">
+        <div className="flex flex-col gap-[93px] w-full" id="MAYONOMICS">
             <div className="flex flex-col gap-[12px] mx-auto">
                 <div
                     style={{
                         textShadow: ' 0px 5px 15px rgba(68, 70, 87, 0.30);',
                     }}
-                    className={`${Skincake.className} text-[90px]`}
+                    className={`${Skincake.className} text-[76px] xl:text-[90px]`}
                 >
                     {' '}
                     Mayonomics
