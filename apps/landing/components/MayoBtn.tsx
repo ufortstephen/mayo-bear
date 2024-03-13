@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import { toast } from 'react-toastify'
 
+const CONTRACT_ADDRESS = '0x4D5892624FeD9074AC8e54aC9E332c9F0a79d330'
+
 export default function MayoBtn() {
     return (
         <div
             onClick={() => {
-                navigator.clipboard.writeText(
-                    '0xCBCbad3b2340FEd311a693dFe5B97bD187046C71'
-                )
+                navigator.clipboard.writeText(CONTRACT_ADDRESS)
                 toast.success('Copied to clipboard', {
                     autoClose: 1000,
                     hideProgressBar: true,
@@ -17,10 +17,13 @@ export default function MayoBtn() {
             className="relative w-full h-[109px] flex items-center"
         >
             <div className="cursor-pointer z-10 align-middle px-[24px] py-[12px] md:text-center justify-start items-center h-[50px] rounded-[60px] bg-[linear-gradient(0deg,#8000E4_0%,#962DFE_100%)] flex gap-[10px]">
-                <div className="text-[16px] font-[400] text-white">
-                    0xCBCbad3b2340FEd311a693
+                <div className="hidden md:flex text-[16px] font-[400] text-white">
+                    {CONTRACT_ADDRESS}
+                </div>
+                <div className="md:hidden text-[16px] font-[400] text-white w-full">
+                    0x4D5892624FeD9074AC8
                     <br className="md:hidden" />
-                    dFe5B97bD187046C71
+                    e54aC9E332c9F0a79d330
                 </div>
                 <div>
                     <Image

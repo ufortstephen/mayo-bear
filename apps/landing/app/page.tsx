@@ -5,6 +5,8 @@ import Image from 'next/image'
 import { Montserrat, Skincake } from '@/styles/fonts'
 import MayoBtn from '@/components/MayoBtn'
 
+const CONTRACT_ADDRESS = '0x4D5892624FeD9074AC8e54aC9E332c9F0a79d330'
+
 function Hero() {
     return (
         <div className="bg-[#8205E7] relative w-full max-h-[1013px]">
@@ -101,8 +103,7 @@ function Hero() {
                 <Image
                     src={'/imgs/mayobear.png'}
                     alt={''}
-                    className="object-cover object-center mx-auto h-full max-w-[1512px]"
-                    style={{ width: '100%', height: 'auto' }}
+                    className="object-cover object-center mx-auto h-full w-full max-w-[1512px]"
                     width={4096}
                     height={2652}
                 />
@@ -123,13 +124,13 @@ function Hero() {
             /> */}
 
             {/* <div className="absolute w-[317px] md:w-[494px] left-1/2 transform -translate-x-[51%] bottom-[23px] md:bottom-[20px]lg:bottom-[30px] xl:bottom-[0px] 2xl:bottom-[-36px] flex flex-col gap-[8px]"> */}
-            <div className="w-[317px] md:w-[494px] -mt-[166px] sm:-mt-[186px] lg:-mt-[166px]  mx-auto flex flex-col gap-[8px]">
+            <div className="w-[317px] md:w-[494px] -mt-[136px] sm:-mt-[186px] lg:-mt-[166px]  mx-auto flex flex-col gap-[8px]">
                 <MayoBtn />
                 <div className="flex gap-[24px] w-full justify-center">
                     <Image
                         onClick={() => {
                             window.open(
-                                'https://dexscreener.com/ethereum/0xCBCbad3b2340FEd311a693dFe5B97bD187046C71',
+                                `https://dexscreener.com/ethereum/${CONTRACT_ADDRESS}`,
                                 '_blank'
                             )
                         }}
@@ -142,7 +143,7 @@ function Hero() {
                     <Image
                         onClick={() => {
                             window.open(
-                                'https://etherscan.io/address/0xCBCbad3b2340FEd311a693dFe5B97bD187046C71',
+                                `https://etherscan.io/address/${CONTRACT_ADDRESS}`,
                                 '_blank'
                             )
                         }}
@@ -155,7 +156,7 @@ function Hero() {
                     <Image
                         onClick={() => {
                             window.open(
-                                'https://www.dextools.io/app/en/ether/pair-explorer/0xCBCbad3b2340FEd311a693dFe5B97bD187046C71',
+                                `https://www.dextools.io/app/en/ether/pair-explorer/${CONTRACT_ADDRESS}`,
                                 '_blank'
                             )
                         }}
@@ -368,6 +369,7 @@ const TimelineDesktop = () => {
         </>
     )
 }
+
 const TimelineMobile = () => {
     return (
         <>
@@ -629,7 +631,7 @@ export default function Home() {
     return (
         <div className="relative flex flex-col min-h-screen w-full items-center overflow-x-hidden gap-[106px] h-[100px] overflow-y-scroll pb-[183px]">
             <Hero />
-            <div className="xl:mt-[90px]"></div>
+            <div className="hidden xl:flex xl:mt-[90px]"></div>
             <Info />
             <Mayonomics />
             <Artworks />
