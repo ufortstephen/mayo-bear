@@ -4,8 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import { Montserrat, Skincake } from '@/styles/fonts'
 import MayoBtn from '@/components/MayoBtn'
-
-const CONTRACT_ADDRESS = '0x4D5892624FeD9074AC8e54aC9E332c9F0a79d330'
+import { CONTRACT_ADDRESS } from '@/consts'
 
 function Hero() {
     return (

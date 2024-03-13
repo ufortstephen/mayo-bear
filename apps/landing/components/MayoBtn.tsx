@@ -1,7 +1,6 @@
+import { CONTRACT_ADDRESS } from '@/consts'
 import Image from 'next/image'
 import { toast } from 'react-toastify'
-
-const CONTRACT_ADDRESS = '0x4D5892624FeD9074AC8e54aC9E332c9F0a79d330'
 
 export default function MayoBtn() {
     return (
@@ -21,9 +20,9 @@ export default function MayoBtn() {
                     {CONTRACT_ADDRESS}
                 </div>
                 <div className="md:hidden text-[16px] font-[400] text-white w-full">
-                    0x4D5892624FeD9074AC8
+                    {CONTRACT_ADDRESS.slice(0, CONTRACT_ADDRESS.length / 2)}
                     <br className="md:hidden" />
-                    e54aC9E332c9F0a79d330
+                    {CONTRACT_ADDRESS.slice(CONTRACT_ADDRESS.length / 2)}
                 </div>
                 <div>
                     <Image
