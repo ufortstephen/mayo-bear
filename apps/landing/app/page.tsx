@@ -66,7 +66,7 @@ function Hero() {
                     <div
                         onClick={() => {
                             window.open(
-                                'https://t.me/MayoBearCoinETH',
+                                'https://app.uniswap.org/swap?outputCurrency=0x3f6c91d57aa4A115346c84aa13e67f33379CD762&chain=mainnet',
                                 '_blank'
                             )
                         }}
