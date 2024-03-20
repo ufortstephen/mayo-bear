@@ -123,7 +123,7 @@ function Hero() {
             /> */}
 
             {/* <div className="absolute w-[317px] md:w-[494px] left-1/2 transform -translate-x-[51%] bottom-[23px] md:bottom-[20px]lg:bottom-[30px] xl:bottom-[0px] 2xl:bottom-[-36px] flex flex-col gap-[8px]"> */}
-            <div className="w-[317px] md:w-[494px] -mt-[136px] sm:-mt-[186px] lg:-mt-[166px]  mx-auto flex flex-col gap-[8px]">
+            <div className="w-[317px] md:w-[494px] -mt-[166px] sm:-mt-[186px] lg:-mt-[166px]  mx-auto flex flex-col gap-[8px]">
                 <MayoBtn />
                 <div className="flex gap-[24px] w-full justify-center">
                     <Image
