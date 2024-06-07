@@ -22,8 +22,8 @@ const queryClient = new QueryClient();
 export function WagmiProviders({ children }: { children: React.ReactNode }) {
 
     const config = getDefaultConfig({
-        appName: 'TiwiFLix',
-        appUrl: 'https://www.tiwiflix.io/',
+        appName: 'Mayo Bear',
+        appUrl: 'https://www.mayobear.xyz/',
         projectId: 'd2300a43e737443584584ffb441e9ffa',
         chains: [
             bsc
