@@ -1,11 +1,15 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
 import {
     AvatarComponent,
+    darkTheme,
     RainbowKitProvider,
     Theme,
 } from '@rainbow-me/rainbowkit'
-import { chains } from './WagmiProvider'
 import ENV from '@/env'
+import { merge } from 'lodash';
+
 
 export default function RainbowProvider({
     children,
@@ -15,7 +19,7 @@ export default function RainbowProvider({
     const CustomAvatar: AvatarComponent = ({ address, ensImage, size }) => {
         return (
             <img
-                src={`${ENV.CDN_BASE_URL}/favicon.png`}
+                src={`/imgs/logo.png`}
                 width={size}
                 height={size}
                 style={{ borderRadius: 999 }}
@@ -28,7 +32,7 @@ export default function RainbowProvider({
             modalOverlay: '',
         },
         colors: {
-            accentColor: '#D0D5E0',
+            accentColor: '#FF9814',
             accentColorForeground: 'black',
             actionButtonBorder: 'var(--greyscale-grey-80, #48484A)',
             actionButtonBorderMobile: 'var(--greyscale-grey-80, #48484A)',
@@ -79,11 +83,19 @@ export default function RainbowProvider({
         },
     }
 
+    const myTheme = merge(darkTheme(), {
+        colors: {
+            accentColor: '#8000E4',
+            accentColorForeground: 'black',
+            modalBackground: '#101011',
+        },
+    } as Theme);
+
     return (
         <RainbowKitProvider
-            chains={chains}
+            modalSize="compact"
             avatar={CustomAvatar}
-            theme={myCustomTheme}
+            theme={myTheme}
         >
             {children}
         </RainbowKitProvider>

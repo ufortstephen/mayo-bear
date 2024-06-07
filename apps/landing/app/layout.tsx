@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css'
 import { ReactNode } from 'react'
 import ENV from '@/env'
 import { Montserrat } from '@/styles/fonts'
+import { WagmiProviders } from '@/components/providers/WagmiProvider'
+
 
 export const metadata: Metadata = {
     title: 'Mayo Bear',
@@ -40,8 +42,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <body
                 className={`${Montserrat.className} max-w-full bg-white text-black`}
             >
-                <ToastContainer />
-                <AppContainer>{children}</AppContainer>
+                <WagmiProviders>
+                    <ToastContainer />
+                    <AppContainer>{children}</AppContainer>
+                </WagmiProviders>
             </body>
         </html>
     )
