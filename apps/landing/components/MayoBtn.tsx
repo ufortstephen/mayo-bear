@@ -13,7 +13,7 @@ export default function MayoBtn() {
                     progress: undefined,
                 })
             }}
-            className="relative w-full h-[109px] flex items-center"
+            className="relative w-full h-[109px] flex items-center justify-center"
         >
             <div className="cursor-pointer z-10 align-middle px-[24px] py-[12px] md:text-center justify-start items-center h-[50px] rounded-[60px] bg-[linear-gradient(0deg,#8000E4_0%,#962DFE_100%)] flex gap-[10px]">
                 <div className="hidden md:flex text-[16px] font-[400] text-white">
@@ -33,7 +33,7 @@ export default function MayoBtn() {
                     />
                 </div>
             </div>
-            <div className="absolute top-0 z-0 pointer-events-none">
+            <div className="absolute top-[2px] left-0 z-0 pointer-events-none">
                 <Image
                     src="/imgs/mayo-4.png"
                     width={127}
@@ -41,23 +41,23 @@ export default function MayoBtn() {
                     alt="Mayo"
                 />
             </div>
-            <div className="absolute bottom-[20px] left-[-10px] z-10 pointer-events-none">
+            <div className="absolute bottom-[20px] left-[-0px] z-10 pointer-events-none">
                 <Image
                     src="/imgs/mayo-3.png"
-                    width={35}
+                    width={45}
                     height={37}
                     alt="Mayo"
                 />
             </div>
-            <div className="absolute bottom-[12px] left-[32px] z-10 pointer-events-none">
+            <div className="absolute bottom-[1px] left-[32px] z-10 pointer-events-none">
                 <Image
                     src="/imgs/mayo-1.png"
-                    width={37}
+                    width={55}
                     height={41}
                     alt="Mayo"
                 />
             </div>
-            <div className="absolute bottom-0 left-[132px] z-10 pointer-events-none">
+            <div className="absolute bottom-0 left-[92px] md:left-[142px] z-10 pointer-events-none">
                 <Image
                     src="/imgs/mayo-5.png"
                     width={205}
@@ -65,10 +65,10 @@ export default function MayoBtn() {
                     alt="Mayo"
                 />
             </div>
-            <div className="absolute right-0 top-[5px] z-10 pointer-events-none">
+            <div className="absolute right-0 top-[15px] z-10 pointer-events-none">
                 <Image
                     src="/imgs/mayo-2.png"
-                    width={25}
+                    width={45}
                     height={27}
                     alt="Mayo"
                 />

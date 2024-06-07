@@ -8,10 +8,23 @@
 }
 
 * {
-    scrollbar-width: none; /* For Firefox */
-    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    scrollbar-width: none;
+    /* For Firefox */
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
 }
 
 *::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
+    display: none;
+    /* For Chrome, Safari, and Opera */
+}
+
+.TitleAndSubtitle_title__Nwyku,
+.TrackListWidget_widgetContainer__VVETD,
+.encore-dark-theme {
+    border-radius: 0px !important;
+}
+
+iframe [data-test-id="embed-widget-container"] {
+    background: blue !important;
 }
