@@ -673,7 +673,7 @@ const TimelineMobile = () => {
 
 function Roadmap() {
     return (
-        <div className="gap-[61px] flex flex-col w-full relative top-[50px] md:-top-[80px]" id="ROADMAP">
+        <div className="gap-[61px] flex flex-col w-full relative -top-[30px] md:-top-[80px]" id="ROADMAP">
             <div className="flex flex-col gap-[9px] mx-auto">
                 <div className="flex flex-col gap-[12px] mx-auto">
                     <div
