@@ -212,7 +212,7 @@ function Hero() {
 
 function Info() {
     return (
-        <><div className="flex flex-col px-[32px] lg:px-0 lg:flex-row w-full max-w-[982px] gap-[60px] mx-auto relative">
+        <><div className="flex flex-col px-[32px] lg:px-0 lg:flex-row w-full max-w-[982px] gap-[90px] mx-auto relative">
             <div
                 className={`${Montserrat.className} pt-[30px] md:pt-0 text-[14px] font-[600] leading-[32px] text-[#FFFFFF] max-w-[436px]`}
             >
@@ -673,7 +673,7 @@ const TimelineMobile = () => {
 
 function Roadmap() {
     return (
-        <div className="gap-[61px] flex flex-col w-full relative top-[15px] md:-top-[80px]" id="ROADMAP">
+        <div className="gap-[61px] flex flex-col w-full relative top-[30px] md:-top-[80px]" id="ROADMAP">
             <div className="flex flex-col gap-[9px] mx-auto">
                 <div className="flex flex-col gap-[12px] mx-auto">
                     <div
