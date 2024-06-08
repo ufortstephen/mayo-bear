@@ -673,7 +673,7 @@ const TimelineMobile = () => {
 
 function Roadmap() {
     return (
-        <div className="gap-[61px] flex flex-col w-full relative md:-top-[80px]" id="ROADMAP">
+        <div className="gap-[61px] flex flex-col w-full relative top-[15px] md:-top-[80px]" id="ROADMAP">
             <div className="flex flex-col gap-[9px] mx-auto">
                 <div className="flex flex-col gap-[12px] mx-auto">
                     <div
@@ -891,7 +891,7 @@ function SpotifyPlaylist() {
 
     return (
         <section className='relative w-full'>
-            <div className="w-[75%] md:w-full max-w-[568px] md:min-w-[568px]  mx-auto border border-[20px] rounded-xl border-[#33005A] bg-[#8820e0] mt-[50px] relative z-20">
+            <div className="w-[90%] md:w-full max-w-[568px] md:min-w-[568px]  mx-auto border border-[20px] rounded-xl border-[#33005A] bg-[#8820e0] mt-[50px] relative z-20">
                 <iframe style={{ borderRadius: '20px' }} id='spotifyPlaylist' src="https://open.spotify.com/embed/playlist/7lWgJOMzCBTUFX0W8aQlW4?utm_source=generator" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
