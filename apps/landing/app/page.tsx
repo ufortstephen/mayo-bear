@@ -28,7 +28,7 @@ function Hero() {
                                 .getElementById('MAYONOMICS')
                                 ?.scrollIntoView({ behavior: 'smooth' })
                         }}
-                        className={`hidden sm:flex blur-button font-[700] text-[#33005A] text-sm rounded flex items-center justify-center  px-6 py-3 h-[2.6rem] capitalize hover:bg-white hover:opacity-80 bg-white rounded-full border-none outline-none`}
+                        className={`hidden sm:flex blur-button font-[700] text-[#000] text-sm rounded flex items-center justify-center  px-6 py-3 h-[2.6rem] capitalize hover:bg-white hover:opacity-80 bg-white rounded-full border-none outline-none`}
 
                         role="button"
                     >
@@ -40,7 +40,7 @@ function Hero() {
                                 .getElementById('ROADMAP')
                                 ?.scrollIntoView({ behavior: 'smooth' })
                         }}
-                        className={`hidden sm:flex  font-[700] text-[#33005A] rounded text-sm flex items-center justify-center  px-6 py-3 h-[2.6rem] capitalize hover:bg-white hover:opacity-80 bg-white rounded-full border-none`}
+                        className={`hidden sm:flex  font-[700] text-[#000000] rounded text-sm flex items-center justify-center  px-6 py-3 h-[2.6rem] capitalize hover:bg-white hover:opacity-80 bg-white rounded-full border-none`}
 
                         role="button"
                     >
@@ -55,7 +55,7 @@ function Hero() {
                                 '_blank'
                             )
                         }}
-                        className={` hidden sm:flex font-[700] text-[#33005A] rounded text-sm flex items-center justify-center  px-6 py-3 h-[2.6rem] capitalize hover:bg-white hover:opacity-80 bg-white rounded-full border-none`}
+                        className={` hidden sm:flex font-[700] text-[#000] rounded text-sm flex items-center justify-center  px-6 py-3 h-[2.6rem] capitalize hover:bg-white hover:opacity-80 bg-white rounded-full border-none`}
 
                         role="button"
                     >
@@ -68,7 +68,7 @@ function Hero() {
                                 '_blank'
                             )
                         }}
-                        className={` hidden sm:flex  font-[700] text-[#33005A] rounded flex text-sm items-center justify-center  px-6 py-3 h-[2.6rem] capitalize hover:bg-white hover:opacity-80 bg-white rounded-full border-none`}
+                        className={` hidden sm:flex  font-[700] text-[#000] rounded flex text-sm items-center justify-center  px-6 py-3 h-[2.6rem] capitalize hover:bg-white hover:opacity-80 bg-white rounded-full border-none`}
 
                         role="button"
                     >
@@ -267,7 +267,7 @@ function Info() {
                         width={22}
                         height={22}
                         src={'/icons/yahoo.svg'}
-                        alt={''} className='cursor-pointer w-[140px]'
+                        alt={''} className='cursor-pointer w-[120px] md:w-[140px]'
                         onClick={() => {
                             window.location.href = '/'
                         }}
@@ -276,7 +276,7 @@ function Info() {
                         width={22}
                         height={22}
                         src={'/icons/tradingview.svg'}
-                        alt={''} className='cursor-pointer w-[200px]'
+                        alt={''} className='cursor-pointer w-[140px] md:w-[200px]'
                         onClick={() => {
                             window.location.href = '/'
                         }}
@@ -285,7 +285,7 @@ function Info() {
                         width={22}
                         height={22}
                         src={'/icons/busines-insider.svg'}
-                        alt={''} className='cursor-pointer w-[120px]'
+                        alt={''} className='cursor-pointer w-[100px] md:w-[120px]'
                         onClick={() => {
                             window.location.href = '/'
                         }}
@@ -297,7 +297,7 @@ function Info() {
                             width={22}
                             height={22}
                             src={'/icons/pai-telegram.svg'}
-                            alt={''} className='cursor-pointer w-[160px]'
+                            alt={''} className='cursor-pointer w-[120px] md:w-[160px]'
                             onClick={() => {
                                 window.location.href = 'https://purplesquare.ai/'
                             }}
@@ -685,7 +685,7 @@ const TimelineMobile = () => {
 
 function Roadmap() {
     return (
-        <div className="gap-[40px] flex flex-col w-full relative  pt-[80px] md:pt-[100px]" id="ROADMAP">
+        <div className="gap-[40px] flex flex-col w-full relative  pt-[40px] md:pt-[60px]" id="ROADMAP">
             <div className="flex flex-col  mx-auto relative">
                 <div
                     style={{
@@ -721,7 +721,7 @@ function Roadmap() {
 
 function App() {
     return (
-        <div className="flex flex-col  relative   pt-[80px] md:pt-[100px]">
+        <div className="flex flex-col  relative   pt-[40px] md:pt-[60px]">
 
             <div className="flex flex-col  mx-auto">
                 <div
@@ -855,7 +855,7 @@ const TokenomicsItem = ({
 function Mayonomics() {
     return (
         <div
-            className="flex flex-col gap-[10px] w-full  max-w-[1200px] pt-[80px] md:pt-[100px]"
+            className="flex flex-col gap-[10px] w-full  max-w-[1200px] pt-[40px] md:pt-[60px]"
             id="MAYONOMICS"
         >
             <div
@@ -936,7 +936,7 @@ function SpotifyPlaylist() {
 
     return (
         <section className='relative w-full z-10'>
-            <div className="w-[75%] md:w-full max-w-[568px] md:min-w-[568px]  mx-auto border border-[20px] rounded-xl border-[#33005A] bg-[#8820e0] mt-[50px] relative z-20">
+            <div className="w-[75%] md:w-full max-w-[568px] md:min-w-[568px]  mx-auto border border-[20px] rounded-xl border-[#33005A] bg-[#8820e0] mt-[60px] relative z-20">
                 <iframe style={{ borderRadius: '20px' }} id='spotifyPlaylist' src="https://open.spotify.com/embed/playlist/7lWgJOMzCBTUFX0W8aQlW4?utm_source=generator" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </section>

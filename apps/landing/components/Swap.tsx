@@ -119,7 +119,7 @@ const SwapLoading: React.FC<any> = ({
 
 
   return (
-    <main className="flex flex-col items-center gap-8 justify-center p-3 bg-[#101011] rounded-3xl border border-10 shadow-md  border-[#1C1C1E] h-max absolute w-full top-0 left-0 h-[100%]">
+    <main className="flex flex-col items-center gap-8 justify-center p-3 bg-[#101011] rounded-3xl border border-10 shadow-md  border-[#1C1C1E] absolute w-full top-0 left-0 h-[100%]">
 
       <div className="relative w-24 h-24 overflow-hidden">
         <svg className="w-full h-full" viewBox="0 0 100 100">
