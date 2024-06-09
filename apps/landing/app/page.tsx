@@ -721,7 +721,7 @@ function Roadmap() {
 
 function App() {
     return (
-        <div className="flex flex-col  relative   pt-[40px] md:pt-[60px]">
+        <div className="flex flex-col  relative  pt-[0px] md:pt-[60px]">
 
             <div className="flex flex-col  mx-auto">
                 <div
@@ -936,7 +936,7 @@ function SpotifyPlaylist() {
 
     return (
         <section className='relative w-full z-10'>
-            <div className="w-[75%] md:w-full max-w-[568px] md:min-w-[568px]  mx-auto border border-[20px] rounded-xl border-[#33005A] bg-[#8820e0] mt-[60px] relative z-20">
+            <div className="w-[85%] md:w-full max-w-[568px] md:min-w-[568px]  mx-auto border border-[20px] rounded-xl border-[#33005A] bg-[#8820e0] mt-[60px] relative z-20">
                 <iframe style={{ borderRadius: '20px' }} id='spotifyPlaylist' src="https://open.spotify.com/embed/playlist/7lWgJOMzCBTUFX0W8aQlW4?utm_source=generator" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </section>
