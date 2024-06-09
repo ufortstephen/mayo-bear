@@ -1,4 +1,4 @@
-import { Montserrat } from '@/styles/fonts';
+import { Geom, Montserrat } from '@/styles/fonts';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 export const MayoConnectButton = () => {
     return (
@@ -34,9 +34,15 @@ export const MayoConnectButton = () => {
                                 return (
                                     <div
                                         onClick={openConnectModal}
-                                        className={`flex text-black rounded btn px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-[#8000E4] ${Montserrat.className} font-[700] text-[16px] border-none`}
+                                        className={`flex  ${Montserrat.className} font-[700] text-[16px] border-none shadow-lg blur-button`}
                                     >
-                                        Connect Wallet
+                                        <button
+                                            className={` ${Montserrat.className} font-[700] text-[#33005A] rounded btn px-6 py-3  capitalize hover:bg-white hover:opacity-80 bg-[#8000E4] rounded-full`}
+                                            aria-label="Connect Wallet"
+                                            role="button"
+                                        >
+                                            Connect Wallet
+                                        </button>
                                     </div>
                                 );
                             }
@@ -44,14 +50,14 @@ export const MayoConnectButton = () => {
                                 return (
                                     <div
                                         onClick={openChainModal}
-                                        className={`flex text-black rounded btn px-[24px] py-[12px] capitalize hover:bg-white hover:opacity-80 bg-[#8000E4] ${Montserrat.className} font-[700] text-[16px] border-none`}
+                                        className={`flex text-black rounded btn px-6 py-3 capitalize hover:bg-white hover:opacity-80 bg-[#8000E4] ${Montserrat.className} font-[700] text-[16px] border-none`}
                                     >
                                         Wrong network
                                     </div>
                                 );
                             }
                             return (
-                                <div style={{ display: 'flex', gap: 12 }} className='rounded btn px-[24px] py-[12px] capitalize bg-[#8000E4] text-white ${Montserrat.className} font-[700] text-[16px] border-none'>
+                                <div style={{ display: 'flex', gap: 12 }} className={`${Montserrat.className} rounded btn  capitalize  text-white  font-[700] text-[16px] border-none bg-transparent`}>
                                     <button
                                         onClick={openChainModal}
                                         style={{ display: 'flex', alignItems: 'center' }}
@@ -60,30 +66,28 @@ export const MayoConnectButton = () => {
                                         {chain.hasIcon && (
                                             <div
                                                 style={{
-                                                    background: chain.iconBackground,
-                                                    width: 12,
-                                                    height: 12,
+                                                    background: '#8000E4',
+                                                    width: 34,
+                                                    height: 34,
                                                     borderRadius: 999,
-                                                    overflow: 'hidden',
-                                                    marginRight: 4,
+                                                    overflow: '',
+                                                    marginRight: 0,
+                                                    position: 'relative'
                                                 }}
                                             >
                                                 {chain.iconUrl && (
                                                     <img
                                                         alt={chain.name ?? 'Chain icon'}
                                                         src={chain.iconUrl}
-                                                        style={{ width: 12, height: 12 }}
+                                                        style={{ width: 20, height: 20 }}
+                                                        className='absolute bottom-0 -right-1 border border-r border-white rounded-full'
                                                     />
                                                 )}
                                             </div>
                                         )}
-                                        {chain.name}
                                     </button>
-                                    <button onClick={openAccountModal} type="button">
+                                    <button onClick={openAccountModal} className={`${Geom.className} text-sm`} type="button">
                                         {account.displayName}
-                                        {account.displayBalance
-                                            ? ` (${account.displayBalance})`
-                                            : ''}
                                     </button>
                                 </div>
                             );

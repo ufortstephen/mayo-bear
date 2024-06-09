@@ -16,5 +16,8 @@ const Montserrat = localFont({
 const Skincake = localFont({
     src: [{ path: './fonts/Skincake.ttf', weight: '400' }],
 })
+const Geom = localFont({
+    src: [{ path: './fonts/Geom-Regular.ttf', weight: '400' }],
+})
 
-export { Montserrat, Skincake }
+export { Montserrat, Skincake, Geom }
