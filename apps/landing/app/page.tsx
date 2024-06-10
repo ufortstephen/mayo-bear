@@ -51,7 +51,7 @@ function Hero() {
                     <button
                         onClick={() => {
                             window.open(
-                                'https://t.me/MayoBearCoinETH',
+                                'https://zealy.io/cw/mayobear/questboard',
                                 '_blank'
                             )
                         }}
