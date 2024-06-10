@@ -52,7 +52,7 @@ function Header() {
 function BgEclipse() {
     return (
         <div className="">
-            <svg className='fixed left-[-40%] bottom-[25%] md:left-[-40%] md:bottom-[-20%] lg:left-[-20%] lg:bottom-[-30%] 2xl:left-[-15%] 2xl:bottom-[-40%] w-[500px] h-[500px] md:w-[750px] md:h-[750px] 2xl:w-[1250px] 2xl:h-[1250px] -z-1' viewBox="0 0 1293 1294" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='fixed left-[-40%] bottom-[25%] md:left-[-40%] md:bottom-[-30%] lg:left-[-30%] lg:bottom-[-40%] 2xl:left-[-15%] 2xl:bottom-[-40%] w-[500px] md:w-[1200px] h-[500px] md:w-[750px] lg:w-[850px] lg:w-[850px]  md:h-[950px] 2xl:w-[1250px] 2xl:h-[1250px] -z-1' viewBox="0 0 1293 1294" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_f_699_3908)">
                     <ellipse cx="646.5" cy="647" rx="298.5" ry="299" fill="#6700B7" />
                 </g>

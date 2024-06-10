@@ -30,7 +30,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
   showMax
 }) => (
 
-  <section className="flex flex-col px-3 md:px-6 pt-4 rounded-xl shadow-md shadow-[#00000066] bg-[#101011]  border-t border-[#1C1C1E] h-[110px]">
+  <section className="flex flex-col px-3 md:px-6 pt-4 rounded-xl shadow-md shadow-[#00000066] bg-[#101011]  border-t border-[#1C1C1E] h-[115px]">
     <header className="flex gap-3 leading-[90%] items-start">
       <div className="flex flex-col flex-1 gap-0">
         <div className={`${Montserrat.className}  justify-center self-start text-xs text-[#636366]`}>
@@ -44,7 +44,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
       <div className="flex flex-col justify-center py-1.5">
         <div className="cursor-pointer flex gap-1.5 items-center py-1 pr-2 pl-1 text-base text-white whitespace-nowrap bg-black rounded-[9999.064px] w-fit ml-auto">
           <Image
-            src="/icons/mayo-avatar.svg"
+            src={tokenSrc}
             width={140}
             height={81}
             alt="Mayo"
@@ -308,7 +308,7 @@ const SwapComponent: React.FC = () => {
 
       <header className="flex flex-col justify-center pr-2 pl-3 text-lg leading-5 text-white">
         <div className="flex gap-5 justify-between py-2">
-          <h1 className={`${Geom.className} my-auto text-md`}>Migrate to New Contract</h1>
+          <h1 className={`${Geom.className} my-auto text-lg`}>Migrate to New Contract</h1>
           <Image
             src={'/icons/settings.svg'}
             width={20}
@@ -326,7 +326,7 @@ const SwapComponent: React.FC = () => {
           balance="200k"
           token="MAYO"
           tokenAlt="Mayo Token"
-          tokenSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/35db83c596a302921ace7fc6c3d8d27064394e50eb10b649853c0a5eb9ddfd1d?apiKey=1dbd2bf751084e5a93c28132f8007052&"
+          tokenSrc="/icons/mayo-avatar.svg"
           maxAction="Max"
           showMax={true}
         />
@@ -344,7 +344,7 @@ const SwapComponent: React.FC = () => {
           balance=""
           token="MAYO"
           tokenAlt="Mayo Token"
-          tokenSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/e0b569413fc27b192d727f8cdf2cb0a5695d3e90486203aec466c643ec3c2c17?apiKey=1dbd2bf751084e5a93c28132f8007052&"
+          tokenSrc="/icons/mayo-avatar-new.svg"
           maxAction=""
           showMax={false}
         />

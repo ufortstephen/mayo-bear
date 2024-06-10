@@ -9,7 +9,7 @@ import { CONTRACT_ADDRESS } from '@/consts'
 
 function Hero() {
     return (
-        <div className="2xl:bg-[#6700B7] relative w-full max-h-[1013px] 2xl:max-h-[100%]">
+        <div className="2xl:bg-[#6700B7] relative w-full max-h-[1013px] 2xl:max-h-[2200px]"> 
             <div className="flex flex-row p-[20px] absolute top-0 w-full z-20">
                 <Image
                     src={'/imgs/logo.png'}
@@ -112,11 +112,11 @@ function Hero() {
                     </div> */}
                 </div>
             </div>
-            <div className="h-[1113px] 2xl:h-[100%] hidden sm:flex overflow-x-hidden relative z-10">
+            <div className="h-[1113px] 2xl:h-[1900px]  hidden sm:flex overflow-x-hidden relative z-10">
                 <Image
                     src={'/imgs/mayo-new.png'}
                     alt={''}
-                    className="object-cover  2xl:object-contain mx-auto h-full w-full max-w-[1512px] 2xl:max-w-[100%]"
+                    className="object-cover  2xl:object-cover mx-auto h-full w-full max-w-[1612px] 2xl:max-w-[100%]"
                     width={4096}
                     height={2652}
                 />
@@ -299,7 +299,7 @@ function Info() {
                             src={'/icons/pai-telegram.svg'}
                             alt={''} className='cursor-pointer w-[120px] md:w-[160px]'
                             onClick={() => {
-                                window.location.href = 'https://purplesquare.ai/'
+                                window.location.href = 'https://t.me/PurpleAIPortal'
                             }}
                         />
                     </div>
