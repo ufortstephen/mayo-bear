@@ -9,7 +9,7 @@ import { CONTRACT_ADDRESS } from '@/consts'
 
 function Hero() {
     return (
-        <div className="2xl:bg-[#] relative w-full max-h-[1013px] 2xl:max-h-[100%]">
+        <div className="2xl:bg-[#6700B7] relative w-full max-h-[1013px] 2xl:max-h-[100%]">
             <div className="flex flex-row p-[20px] absolute top-0 w-full z-20">
                 <Image
                     src={'/imgs/logo.png'}
@@ -116,7 +116,7 @@ function Hero() {
                 <Image
                     src={'/imgs/mayo-new.png'}
                     alt={''}
-                    className="object-cover object-center 2xl:object-fill mx-auto h-full w-full max-w-[1512px] 2xl:max-w-[100%]"
+                    className="object-cover  2xl:object-contain mx-auto h-full w-full max-w-[1512px] 2xl:max-w-[100%]"
                     width={4096}
                     height={2652}
                 />
@@ -958,7 +958,8 @@ export default function Home() {
                 <App />
                 <SpotifyPlaylist />
                 <Socials />
-                <div className="absolute top-[48%] md:top-[40%] -left-[200px] 2xl:-left-20 rounded-full h-[600px] md:h-[900px] 2xl:h-[1200px] z-[1]">
+                <div className="absolute top-[48%] md:top-[40%] -left-[200px] xl:-left-[180px]  rounded-full h-[600px] md:h-[900px] 2xl:h-[1200px] z-[1] ">
+                   <p>Hello</p>
                     <Image
                         src={'/imgs/ellipses-2.svg'}
                         alt={''}

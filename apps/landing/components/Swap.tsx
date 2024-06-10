@@ -226,7 +226,6 @@ const SwapComponent: React.FC = () => {
   const handleExchange = () => {
 
     // setProgressCount(10)
-    console.log(progressCount);
 
     if (progressCount < 100) {
       const timer = setTimeout(() => {
@@ -238,46 +237,72 @@ const SwapComponent: React.FC = () => {
     }
   }
 
-  console.log(progressCount);
-
-
   return (
     <main className="flex flex-col p-3 bg-[#101011] rounded-3xl border border-10 shadow-md  border-[#1C1C1E] h-max">
 
       <div className="absolute -bottom-[38px] -right-[15px] z-10 pointer-events-none">
         <Image
-          src="/imgs/mayo-6.svg"
-          width={207}
-          height={81}
+          src="/imgs/mayo-5.png"
+          width={205}
+          height={32}
           alt="Mayo"
-          className=""
+        />
+
+      </div>
+      <div className="absolute -top-[14px] left-[105px] z-10 pointer-events-none -rotate-[150deg]">
+         <Image
+          src="/imgs/mayo-1.png"
+          width={16}
+          height={41}
+          alt="Mayo"
         />
       </div>
-      <div className="absolute -bottom-[25px] -left-[15px] z-10 pointer-events-none">
-        <Image
-          src="/imgs/mayo-7.svg"
-          width={120}
-          height={81}
+      <div className="absolute top-[29px] right-[-6px] z-10 pointer-events-none -rotate-[150deg]">
+         <Image
+          src="/imgs/mayo-1.png"
+          width={12}
+          height={41}
           alt="Mayo"
-          className=""
         />
       </div>
-      <div className="absolute -top-[20px] right-[-50px] z-10 pointer-events-none">
+      <div className="absolute -bottom-[10px] -left-[25px] z-10 pointer-events-none rotate-[45deg]">
         <Image
-          src="/imgs/mayo-8.svg"
-          width={100}
-          height={81}
+          src="/imgs/mayo-1.png"
+          width={60}
+          height={41}
           alt="Mayo"
-          className=""
         />
       </div>
-      <div className="absolute -top-[28px] left-[-20px] pointer-events-none -z-1">
+      <div className="absolute -bottom-[22px] left-[25px] z-10 pointer-events-none rotate-[deg]">
         <Image
-          src="/imgs/mayo-9.svg"
-          width={140}
-          height={81}
+          src="/imgs/mayo-1.png"
+          width={60}
+          height={41}
           alt="Mayo"
-          className="-z-1"
+        />
+      </div>
+      <div className="absolute -bottom-[3px] left-[80px] z-10 pointer-events-none -rotate-[150deg]">
+         <Image
+          src="/imgs/mayo-1.png"
+          width={22}
+          height={41}
+          alt="Mayo"
+        />
+      </div>
+      <div className="absolute -top-[20px] right-[-20px] z-10 pointer-events-none -rotate-[10deg]	">
+        <Image
+          src="/imgs/mayo-2.png"
+          width={60}
+          height={27}
+          alt="Mayo"
+        />
+      </div>
+      <div className="absolute -top-[28px] left-[-20px] pointer-events-none z-[-1]">
+        <Image
+          src="/imgs/mayo-4.png"
+          width={130}
+          height={32}
+          alt="Mayo"
         />
       </div>
 
@@ -286,10 +311,11 @@ const SwapComponent: React.FC = () => {
           <h1 className={`${Geom.className} my-auto text-md`}>Migrate to New Contract</h1>
           <Image
             src={'/icons/settings.svg'}
-            width={80}
+            width={20}
             height={80}
             alt={''}
-            className="cursor-pointer hover:opacity-80 w-6 h-6"
+            className="cursor-pointer hover:opacity-80"
+            onClick={() => window.open('https://t.me/+dMO2LwWwM1NmMzk1', '_blank')}
 
           />
         </div>
