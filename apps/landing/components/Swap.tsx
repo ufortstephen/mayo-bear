@@ -238,7 +238,7 @@ const SwapComponent: React.FC = () => {
 
   const handleWalletConnect = () => {
     setIsConnected(true)
-    openConnectModal()
+    openConnectModal
   }
   const handleExchange = () => {
 
