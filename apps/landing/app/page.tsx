@@ -373,7 +373,7 @@ function PictureFrame({ img, className }: { img: string; className?: string }) {
 function RedactedPictureFrame({ className, imgSrc }: { className?: string, imgSrc?: string }) {
     return (
         <div
-            className={`${className} w-[250px] md:w-[282.41px] h-[300px] md:h-[350px] bg- py-12 pr-6`}
+            className={`${className} w-[250px] md:w-[282.41px] h-[300px] md:h-[350px] 2xl:w-[450px] 2xl:h-[450px] bg- py-12 pr-6 2xl:pr-10`}
         >
             <div
                 className={`w-full h-full flex text-[#FFF8E5] relative bg- ${Skincake.className} m-auto`}
@@ -473,7 +473,7 @@ function Artworks() {
                     }}
                 /> */}
                 <div className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[-3deg] scale-[1.1] relative z-20 mt-20 lg:mt-0">
-                    <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px]  items-center bg-black ">
+                    <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px] 2xl:h-[500px]  items-center bg-black ">
                         <RedactedPictureFrame className='rotate-[-2deg]' imgSrc={'/artworks/first.svg'} />
                         <RedactedPictureFrame className='rotate-[-2deg]  relative' imgSrc={'/artworks/second.svg'} />
                         <RedactedPictureFrame className='rotate-[-2deg] relative' imgSrc={'/artworks/third.svg'} />
@@ -488,8 +488,8 @@ function Artworks() {
 
                     </div>
                 </div>
-                <div className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[13deg] md:rotate-[6deg] lg:rotate-[2.5deg] 2xl:rotate-[0deg] scale-[1.08] md:scale-[1.1] lg:scale-[1.07] absolute top-[385px] md:top-[216px] lg:top-[38px] 2xl:top-[5px]  opacity-[0.2] -z-1 h-[100%]">
-                    <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px]  items-center bg-black ">
+                <div className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[13deg] md:rotate-[6deg] lg:rotate-[2.5deg] 2xl:rotate-[1deg] scale-[1.08] md:scale-[1.1] lg:scale-[1.07] absolute top-[385px] md:top-[216px] lg:top-[38px] 2xl:top-[28px]  opacity-[0.2] -z-1 h-[100%]">
+                    <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px] 2xl:h-[500px] items-center bg-black ">
                         <RedactedPictureFrame className='rotate-[-2deg]' />
                         <RedactedPictureFrame className='rotate-[-2deg]  relative ' />
                         <RedactedPictureFrame className='rotate-[-2deg] relative ' />
