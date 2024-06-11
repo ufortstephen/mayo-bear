@@ -6,12 +6,13 @@ export default function MayoBtn() {
     return (
         <div
             onClick={() => {
-                navigator.clipboard.writeText(CONTRACT_ADDRESS_URL)
-                toast.success('Copied to clipboard', {
-                    autoClose: 1000,
-                    hideProgressBar: true,
-                    progress: undefined,
-                })
+                window.open(CONTRACT_ADDRESS_URL, '_self')
+                // navigator.clipboard.writeText(CONTRACT_ADDRESS_URL)
+                // toast.success('Copied to clipboard', {
+                //     autoClose: 1000,
+                //     hideProgressBar: true,
+                //     progress: undefined,
+                // })
             }}
             className="relative w-full h-[109px] flex items-center"
         >
