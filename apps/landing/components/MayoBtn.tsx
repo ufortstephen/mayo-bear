@@ -1,4 +1,4 @@
-import { CONTRACT_ADDRESS } from '@/consts'
+import { CONTRACT_ADDRESS, CONTRACT_ADDRESS_URL } from '@/consts'
 import Image from 'next/image'
 import { toast } from 'react-toastify'
 
@@ -6,7 +6,7 @@ export default function MayoBtn() {
     return (
         <div
             onClick={() => {
-                navigator.clipboard.writeText(CONTRACT_ADDRESS)
+                navigator.clipboard.writeText(CONTRACT_ADDRESS_URL)
                 toast.success('Copied to clipboard', {
                     autoClose: 1000,
                     hideProgressBar: true,

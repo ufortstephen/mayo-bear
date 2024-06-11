@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { Montserrat, Skincake } from '@/styles/fonts'
 import MayoBtn from '@/components/MayoBtn'
@@ -373,41 +373,69 @@ function PictureFrame({ img, className }: { img: string; className?: string }) {
 function RedactedPictureFrame({ className, imgSrc }: { className?: string, imgSrc?: string }) {
     return (
         <div
-            className={`${className} w-[250px] md:w-[282.41px] h-[300px] md:h-[350px] 2xl:w-[450px] 2xl:h-[450px] bg- py-12 pr-6 2xl:pr-10`}
+            className={`${className} cursor-pointer hover:opacity-[0.8] w-[250px] md:w-[282.41px] h-[300px] md:h-[350px] 2xl:w-[450px] 2xl:h-[450px] bg- py-12 pr-6 2xl:pr-10`}
         >
             <div
                 className={`w-full h-full flex text-[#FFF8E5] relative bg- ${Skincake.className} m-auto`}
             >
 
                 <div className="absolute -top-10 left-0 w-full h-max flex items-center justify-between gap-4 z-20">
-                    <div className="h-7 w-7 rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
-                        <div className="w-6 h-6 rounded-full bg-white"> &nbsp;</div>
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
                     </div>
 
-                    <div className="h-7 w-7 rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
-                        <div className="w-6 h-6 rounded-full bg-white"> &nbsp;</div>
+                    <div className="hidden 2xl:flex h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
                     </div>
-
-                    <div className="h-7 w-7 rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
-                        <div className="w-6 h-6 rounded-full bg-white"> &nbsp;</div>
-                    </div>
-
-                    <div className="h-7 w-7 rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
-                        <div className="w-6 h-6 rounded-full bg-white"> &nbsp;</div>
-                    </div>
-
-                    <div className="h-7 w-7 rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
-                        <div className="w-6 h-6 rounded-full bg-white"> &nbsp;</div>
+                    <div className="hidden 2xl:flex h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
                     </div>
 
 
                 </div>
-                <div className="absolute -bottom-10 left-0 w-full h-max flex items-center justify-between gap-4 z-20">
-                    <div className="w-6 h-6 rounded-full bg-white"></div>
-                    <div className="w-6 h-6 rounded-full bg-white"></div>
-                    <div className="w-6 h-6 rounded-full bg-white"></div>
-                    <div className="w-6 h-6 rounded-full bg-white"></div>
-                    <div className="w-6 h-6 rounded-full bg-white"></div>
+                <div className="absolute -bottom-10 left-0 w-full 2xl:w-full h-max flex items-center justify-between gap-4 z-20">
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+
+                    <div className="hidden 2xl:flex h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+                    <div className="hidden 2xl:flex h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+
+
                 </div>
                 <div className="m-auto">
 
@@ -425,6 +453,56 @@ function RedactedPictureFrame({ className, imgSrc }: { className?: string, imgSr
 }
 
 function Artworks() {
+
+    const [scrollDirection, setScrollDirection] = useState<any>('down');
+    const scrollingElementRef = useRef<HTMLDivElement>(null);
+    const targetElementRef = useRef<HTMLDivElement>(null);
+
+    let currentScrollLeft = 0
+    useEffect(() => {
+        const handleScroll = (e: any) => {
+            if (scrollingElementRef.current && targetElementRef.current) {
+                const scrollingElement = scrollingElementRef.current;
+                const targetElement = targetElementRef.current;
+
+
+                // if scrolled right
+                if (e.target.scrollLeft > currentScrollLeft) {
+                    if (scrollingElementRef.current && targetElementRef.current) {
+                        targetElement.scrollBy({
+                            left: currentScrollLeft - e.target.scrollLeft,
+                            behavior: 'auto'
+                        })
+
+                    }
+                }
+                else {
+                    targetElement.classList.add('opacity-0')
+                    targetElement.scrollBy({
+                        left: currentScrollLeft - e.target.scrollLeft,
+                        behavior: 'auto'
+                    })
+                }
+
+                currentScrollLeft = (e.target.scrollLeft)
+            }
+        };
+
+        if (scrollingElementRef.current && targetElementRef.current) {
+            const targetElement = targetElementRef.current;
+            scrollingElementRef.current.addEventListener('scroll', handleScroll);
+            targetElement.scrollBy({
+                left: targetElement.scrollWidth,
+                behavior: 'auto'
+            })
+        }
+
+        return () => {
+            if (scrollingElementRef.current) {
+                scrollingElementRef.current.removeEventListener('scroll', handleScroll);
+            }
+        };
+    }, []);
     return (
         <div className="gap-[0px] flex flex-col w-full  relative pt-[80px] md:pt-[120px]">
             <div className="absolute -top-[30%] md:-top-[20%] -right-[10%] md:-right-[0%] w-[300px] md:w-full overflow-hidden -z-1">
@@ -436,7 +514,7 @@ function Artworks() {
                     height={2342}
                 />
             </div>
-            <div className="flex flex-col gap-[0px] mx-auto relative">
+            <div className="flex flex-col gap-[0px] mx-auto relative pb-0 lg:pb-4 2xl:pb-12">
 
                 <div
                     style={{
@@ -461,60 +539,40 @@ function Artworks() {
 
             </div>
 
-            <div className='relative lg:h-max  mt-10'>
-                {/* <Image
-                    src={'/icons/film-strips.svg'}
-                    width={1000}
-                    height={10}
-                    alt={''}
-                    className="cursor-pointer relative  w-full h-full z-[50] lg:max-h-[500px] object-cover 2xl:max-h-max"
-                    onClick={() => {
-                        window.location.href = '/'
-                    }}
-                /> */}
-                <div className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[-3deg] scale-[1.1] relative z-20 mt-20 lg:mt-0">
+            <div className='relative   mt-10 h-[300px] md:h-[380px] 2xl:h-[500px]'>
+                <div ref={scrollingElementRef} className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[-3deg] scale-[1.1] relative z-20 mt-20 lg:mt-0">
                     <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px] 2xl:h-[500px]  items-center bg-black ">
-                        <RedactedPictureFrame className='rotate-[-2deg]' imgSrc={'/artworks/first.svg'} />
-                        <RedactedPictureFrame className='rotate-[-2deg]  relative' imgSrc={'/artworks/second.svg'} />
-                        <RedactedPictureFrame className='rotate-[-2deg] relative' imgSrc={'/artworks/third.svg'} />
-                        <RedactedPictureFrame className='rotate-[-2deg] relative' imgSrc={'/artworks/forth.svg'} />
-                        <RedactedPictureFrame className='rotate-[-2deg]' imgSrc={'/artworks/fifth.svg'} />
-                        <RedactedPictureFrame className='rotate-[-2deg]' imgSrc={'/artworks/first.svg'} />
-                        <RedactedPictureFrame className='rotate-[-2deg]  relative' imgSrc={'/artworks/second.svg'} />
-                        <RedactedPictureFrame className='rotate-[-2deg] relative' imgSrc={'/artworks/third.svg'} />
-                        <RedactedPictureFrame className='rotate-[-2deg] relative' imgSrc={'/artworks/forth.svg'} />
-                        <RedactedPictureFrame className='rotate-[-2deg]' imgSrc={'/artworks/fifth.svg'} />
-                        <RedactedPictureFrame className='rotate-[-2deg]' imgSrc={'/artworks/first.svg'} />
+                        <RedactedPictureFrame className='rotate-[deg]' imgSrc={'/artworks/first.svg'} />
+                        <RedactedPictureFrame className='rotate-[deg]  relative -top-0' imgSrc={'/artworks/second.svg'} />
+                        <RedactedPictureFrame className='rotate-[0deg] relative ' imgSrc={'/artworks/third.svg'} />
+                        <RedactedPictureFrame className='rotate-[0deg] relative' imgSrc={'/artworks/forth.svg'} />
+                        <RedactedPictureFrame className='rotate-[0deg]' imgSrc={'/artworks/fifth.svg'} />
+                        <RedactedPictureFrame className='rotate-[0deg]' imgSrc={'/artworks/first.svg'} />
+                        <RedactedPictureFrame className='rotate-[0deg]  relative' imgSrc={'/artworks/second.svg'} />
+                        <RedactedPictureFrame className='rotate-[0deg] relative' imgSrc={'/artworks/third.svg'} />
+                        <RedactedPictureFrame className='rotate-[0deg] relative' imgSrc={'/artworks/forth.svg'} />
+                        <RedactedPictureFrame className='rotate-[0deg]' imgSrc={'/artworks/fifth.svg'} />
+                        <RedactedPictureFrame className='rotate-[0deg]' imgSrc={'/artworks/first.svg'} />
 
                     </div>
                 </div>
-                <div className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[13deg] md:rotate-[6deg] lg:rotate-[2.5deg] 2xl:rotate-[1deg] scale-[1.08] md:scale-[1.1] lg:scale-[1.07] absolute top-[385px] md:top-[216px] lg:top-[38px] 2xl:top-[28px]  opacity-[0.2] -z-1 h-[100%]">
+                <div ref={targetElementRef} className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[7deg] md:rotate-[6deg] lg:rotate-[2deg] 2xl:rotate-[1deg] scale-[1.08] md:scale-[1.1] lg:scale-[1.07] relative top-[-300px] md:top-[-377px] lg:top-[-380px] 2xl:top-[-500px]  opacity-[0.2] -z-1">
                     <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px] 2xl:h-[500px] items-center bg-black ">
-                        <RedactedPictureFrame className='rotate-[-2deg]' />
-                        <RedactedPictureFrame className='rotate-[-2deg]  relative ' />
-                        <RedactedPictureFrame className='rotate-[-2deg] relative ' />
-                        <RedactedPictureFrame className='rotate-[-2deg] relative ' />
-                        <RedactedPictureFrame className='rotate-[-2deg]' />
-                        <RedactedPictureFrame className='rotate-[-2deg]' />
-                        <RedactedPictureFrame className='rotate-[-2deg]' />
-                        <RedactedPictureFrame className='rotate-[-2deg]  relative ' />
-                        <RedactedPictureFrame className='rotate-[-2deg] relative ' />
-                        <RedactedPictureFrame className='rotate-[-2deg] relative ' />
-                        <RedactedPictureFrame className='rotate-[-2deg]' />
-                        <RedactedPictureFrame className='rotate-[-2deg]' />
+                        <RedactedPictureFrame className='rotate-[0deg]' />
+                        <RedactedPictureFrame className='rotate-[0deg]  relative ' />
+                        <RedactedPictureFrame className='rotate-[0deg] relative ' />
+                        <RedactedPictureFrame className='rotate-[0deg] relative ' />
+                        <RedactedPictureFrame className='rotate-[0deg]' />
+                        <RedactedPictureFrame className='rotate-[0deg]' />
+                        <RedactedPictureFrame className='rotate-[0deg]' />
+                        <RedactedPictureFrame className='rotate-[0deg]  relative ' />
+                        <RedactedPictureFrame className='rotate-[0deg] relative ' />
+                        <RedactedPictureFrame className='rotate-[0deg] relative ' />
+                        <RedactedPictureFrame className='rotate-[0deg]' />
+                        <RedactedPictureFrame className='rotate-[0deg]' />
 
                     </div>
                 </div>
-                {/* <Image
-                    src={'/icons/film-strips-overlay.svg'}
-                    width={1000}
-                    height={10}
-                    alt={''}
-                    className=" absolute top-0 left-0 w-full h-full z-[20] lg:max-h-[500px] object-cover 2xl:max-h-max"
-                    onClick={() => {
-                        window.location.href = '/'
-                    }}
-                /> */}
             </div>
 
 
@@ -790,7 +848,7 @@ const TimelineMobile = () => {
 
 function Roadmap() {
     return (
-        <div className="gap-[40px] flex flex-col w-full relative  pt-[100px] md:pt-[100px]" id="ROADMAP">
+        <div className="gap-[40px] flex flex-col w-full relative  pt-[180px] lg:pt-[100px]" id="ROADMAP">
             <div className="flex flex-col  mx-auto relative">
                 <div
                     style={{
