@@ -255,7 +255,7 @@ function Hero() {
 
 function Info() {
     return (
-        <section className='w-full h-max relative flex flex-col gap-[100px] md:gap-[140px]'>
+        <section className='w-full h-max relative flex flex-col gap-[100px] 2xl:py-10 md:gap-[140px]'>
             <div className="absolute top-[40%] md:top-[40%] left-[-30%] md:left-[0%] w-[380px] md:w-[300px] 2xl:w-[400px]  rounded-full">
                 <Image
                     src={'/imgs/ellipses-8.svg'}
