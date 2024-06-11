@@ -49,3 +49,7 @@
         top: 50px !important;
     }
 }
+
+.carousel {
+    display: flex !important;
+}

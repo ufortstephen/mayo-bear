@@ -340,7 +340,7 @@ function Info() {
                             src={'/icons/pai-telegram.svg'}
                             alt={''} className='cursor-pointer w-[120px] md:w-[160px]'
                             onClick={() => {
-                                window.location.href = 'https://t.me/PurpleAIPortal'
+                                window.open('https://t.me/PurpleAIPortal', '_blank')
                             }}
                         />
                     </div>
@@ -370,15 +370,55 @@ function PictureFrame({ img, className }: { img: string; className?: string }) {
     )
 }
 
-function RedactedPictureFrame({ className }: { className?: string }) {
+function RedactedPictureFrame({ className, imgSrc }: { className?: string, imgSrc?: string }) {
     return (
         <div
-            className={`${className} w-[332.41px] h-[332.41px] border-[13px] shadow-md border-white`}
+            className={`${className} w-[250px] md:w-[282.41px] h-[300px] md:h-[350px] bg- py-12 pr-6`}
         >
             <div
-                className={`w-full h-full flex text-[#FFF8E5] bg-black ${Skincake.className} m-auto`}
+                className={`w-full h-full flex text-[#FFF8E5] relative bg- ${Skincake.className} m-auto`}
             >
-                <div className="m-auto">(REDACTED)</div>
+
+                <div className="absolute -top-10 left-0 w-full h-max flex items-center justify-between gap-4 z-20">
+                    <div className="h-7 w-7 rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-6 h-6 rounded-full bg-white"> &nbsp;</div>
+                    </div>
+
+                    <div className="h-7 w-7 rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-6 h-6 rounded-full bg-white"> &nbsp;</div>
+                    </div>
+
+                    <div className="h-7 w-7 rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-6 h-6 rounded-full bg-white"> &nbsp;</div>
+                    </div>
+
+                    <div className="h-7 w-7 rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-6 h-6 rounded-full bg-white"> &nbsp;</div>
+                    </div>
+
+                    <div className="h-7 w-7 rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-6 h-6 rounded-full bg-white"> &nbsp;</div>
+                    </div>
+
+
+                </div>
+                <div className="absolute -bottom-10 left-0 w-full h-max flex items-center justify-between gap-4 z-20">
+                    <div className="w-6 h-6 rounded-full bg-white"></div>
+                    <div className="w-6 h-6 rounded-full bg-white"></div>
+                    <div className="w-6 h-6 rounded-full bg-white"></div>
+                    <div className="w-6 h-6 rounded-full bg-white"></div>
+                    <div className="w-6 h-6 rounded-full bg-white"></div>
+                </div>
+                <div className="m-auto">
+
+                    <Image
+                        src={imgSrc || '/artworks/first.svg'}
+                        alt={''}
+                        width={332.41}
+                        height={332.41}
+                        className="absolute top-0 left-0 object-cover w-full h-full"
+                    />
+                </div>
             </div>
         </div>
     )
@@ -386,7 +426,7 @@ function RedactedPictureFrame({ className }: { className?: string }) {
 
 function Artworks() {
     return (
-        <div className="gap-[0px] flex flex-col w-full  relative pt-[80px] md:pt-[100px]">
+        <div className="gap-[0px] flex flex-col w-full  relative pt-[80px] md:pt-[120px]">
             <div className="absolute -top-[30%] md:-top-[20%] -right-[10%] md:-right-[0%] w-[300px] md:w-full overflow-hidden -z-1">
                 <Image
                     src={'/imgs/ellipse-6.svg'}
@@ -421,8 +461,8 @@ function Artworks() {
 
             </div>
 
-            <div className='relative lg:h-max w-full mt-10'>
-                <Image
+            <div className='relative lg:h-max  mt-10'>
+                {/* <Image
                     src={'/icons/film-strips.svg'}
                     width={1000}
                     height={10}
@@ -431,8 +471,41 @@ function Artworks() {
                     onClick={() => {
                         window.location.href = '/'
                     }}
-                />
-                <Image
+                /> */}
+                <div className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[-3deg] scale-[1.1] relative z-20 mt-20 lg:mt-0">
+                    <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px]  items-center bg-black ">
+                        <RedactedPictureFrame className='rotate-[-2deg]' imgSrc={'/artworks/first.svg'} />
+                        <RedactedPictureFrame className='rotate-[-2deg]  relative' imgSrc={'/artworks/second.svg'} />
+                        <RedactedPictureFrame className='rotate-[-2deg] relative' imgSrc={'/artworks/third.svg'} />
+                        <RedactedPictureFrame className='rotate-[-2deg] relative' imgSrc={'/artworks/forth.svg'} />
+                        <RedactedPictureFrame className='rotate-[-2deg]' imgSrc={'/artworks/fifth.svg'} />
+                        <RedactedPictureFrame className='rotate-[-2deg]' imgSrc={'/artworks/first.svg'} />
+                        <RedactedPictureFrame className='rotate-[-2deg]  relative' imgSrc={'/artworks/second.svg'} />
+                        <RedactedPictureFrame className='rotate-[-2deg] relative' imgSrc={'/artworks/third.svg'} />
+                        <RedactedPictureFrame className='rotate-[-2deg] relative' imgSrc={'/artworks/forth.svg'} />
+                        <RedactedPictureFrame className='rotate-[-2deg]' imgSrc={'/artworks/fifth.svg'} />
+                        <RedactedPictureFrame className='rotate-[-2deg]' imgSrc={'/artworks/first.svg'} />
+
+                    </div>
+                </div>
+                <div className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[13deg] md:rotate-[6deg] lg:rotate-[2.5deg] scale-[1.1] lg:scale-[1.07] absolute top-[390px] md:top-[216px] lg:top-[38px]  opacity-[0.2] -z-1 h-[100%]">
+                    <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px]  items-center bg-black ">
+                        <RedactedPictureFrame className='rotate-[-2deg]' />
+                        <RedactedPictureFrame className='rotate-[-2deg]  relative ' />
+                        <RedactedPictureFrame className='rotate-[-2deg] relative ' />
+                        <RedactedPictureFrame className='rotate-[-2deg] relative ' />
+                        <RedactedPictureFrame className='rotate-[-2deg]' />
+                        <RedactedPictureFrame className='rotate-[-2deg]' />
+                        <RedactedPictureFrame className='rotate-[-2deg]' />
+                        <RedactedPictureFrame className='rotate-[-2deg]  relative ' />
+                        <RedactedPictureFrame className='rotate-[-2deg] relative ' />
+                        <RedactedPictureFrame className='rotate-[-2deg] relative ' />
+                        <RedactedPictureFrame className='rotate-[-2deg]' />
+                        <RedactedPictureFrame className='rotate-[-2deg]' />
+
+                    </div>
+                </div>
+                {/* <Image
                     src={'/icons/film-strips-overlay.svg'}
                     width={1000}
                     height={10}
@@ -441,19 +514,10 @@ function Artworks() {
                     onClick={() => {
                         window.location.href = '/'
                     }}
-                />
+                /> */}
             </div>
 
-            <div className="lg:mx-auto carousel hidden">
-                <div className="flex flex-nowrap py-[33px] gap-[-20px]">
-                    <RedactedPictureFrame className="hidden lg:flex" />
-                    <RedactedPictureFrame className="rotate-6" />
-                    <RedactedPictureFrame />
-                    <RedactedPictureFrame className="rotate-6" />
-                    <RedactedPictureFrame className="rotate-[353deg]" />
-                    <RedactedPictureFrame className="rotate-[353deg]" />
-                </div>
-            </div>
+
         </div>
     )
 }
@@ -726,7 +790,7 @@ const TimelineMobile = () => {
 
 function Roadmap() {
     return (
-        <div className="gap-[40px] flex flex-col w-full relative  pt-[40px] md:pt-[60px]" id="ROADMAP">
+        <div className="gap-[40px] flex flex-col w-full relative  pt-[100px] md:pt-[120px]" id="ROADMAP">
             <div className="flex flex-col  mx-auto relative">
                 <div
                     style={{

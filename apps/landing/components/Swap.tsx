@@ -15,7 +15,9 @@ type InfoSectionProps = {
   tokenAlt: string;
   tokenSrc: string;
   maxAction: string;
-  showMax: boolean
+  showMax: boolean;
+  onAmountChange: any;
+  toAmount?: any
 };
 
 
@@ -27,64 +29,72 @@ const InfoSection: React.FC<InfoSectionProps> = ({
   tokenAlt,
   tokenSrc,
   maxAction,
-  showMax
-}) => (
+  toAmount,
+  showMax,
+  onAmountChange
+}) => {
 
-  <section className="flex flex-col px-3 md:px-6 pt-4 rounded-xl shadow-md shadow-[#00000066] bg-[#101011]  border-t border-[#1C1C1E] h-[115px]">
-    <header className="flex gap-3 leading-[90%] items-start">
-      <div className="flex flex-col flex-1 gap-0">
-        <div className={`${Montserrat.className}  justify-center self-start text-xs text-[#636366]`}>
-          {title}
+  const [amount, setAmount] = React.useState(0)
+
+  return (
+    <section className="flex flex-col px-3 md:px-6 pt-4 rounded-xl shadow-md shadow-[#00000066] bg-[#101011]  border-t border-[#1C1C1E] h-[125px]">
+      <header className="flex gap-3 leading-[90%] items-start">
+        <div className="flex flex-col flex-1 gap-0">
+          <div className={`${Montserrat.className}  justify-center self-start text-xs text-[#636366] mb-3`}>
+            {title}
+          </div>
+          {showMax ? <input type="text" name="" onChange={(e: any) => { setAmount(e.target.value), onAmountChange(e.target.value) }} id="" placeholder="0" value={amount} className={`${Montserrat.className} h-10 bg-transparent border-none outline-none text-[#fff] text-2xl font-[500] w-full`} />
+            : <input type="text" name="" disabled onChange={(e: any) => { setAmount(e.target.value), onAmountChange(e.target.value) }} id="" placeholder="0" value={toAmount} className={`${Montserrat.className} h-10 bg-transparent border-none outline-none text-[#fff] text-2xl font-[500] w-full`} />}          <div className={`${Montserrat.className}  justify-center self-start text-xs text-[#636366] mt-1`}>
+            ${amount ? amount * 0.0002 : toAmount * 0.0002}
+          </div>
         </div>
-        <input type="text" name="" id="" placeholder="0" className={`${Montserrat.className} h-10 bg-transparent border-none outline-none text-[#fff] text-2xl font-[500] w-full`} />
-        <div className={`${Montserrat.className}  justify-center self-start text-xs text-[#636366]`}>
-          $4,093.06
-        </div>
-      </div>
-      <div className="flex flex-col justify-center py-1.5">
-        <div className="cursor-pointer flex gap-1.5 items-center py-1 pr-2 pl-1 text-base text-white whitespace-nowrap bg-black rounded-[9999.064px] w-fit ml-auto">
-          <Image
-            src={tokenSrc}
-            width={140}
-            height={81}
-            alt="Mayo"
-            className="w-8 h-8 cursor-pointer"
-          />
-          <div className="self-stretch my-auto text-sm">{token}</div>
-          <Image
-            src="/icons/caret-down.svg"
-            width={140}
-            height={81}
-            alt="Mayo"
-            className="w-4 h-4 cursor-pointer"
-          />
-        </div>
-        {showMax && <div className="flex gap-2 mt-3 text-xs text-right">
-          <div className="text-[#636366]">Balance: {balance}</div>
-          <button
-            className={`bg-red-500 ${Montserrat.className} bg-clip-text bg-[linear-gradient(180deg,#BF72FA_0%,#BF72FA_100%,#fff_100%)] leading-[22px]`}
-            onClick={() => null}
-          >
+        <div className="flex flex-col justify-center py-1.5">
+          <div className="cursor-pointer flex gap-1.5 items-center py-1 pr-2 pl-1 text-base text-white whitespace-nowrap bg-black rounded-[9999.064px] w-fit ml-auto">
             <Image
-              src="/imgs/max.svg"
+              src={tokenSrc}
               width={140}
               height={81}
               alt="Mayo"
-              className="w-6"
+              className="w-8 h-8 cursor-pointer"
             />
-          </button>
+            <div className="self-stretch my-auto text-sm">{token}</div>
+            <Image
+              src="/icons/caret-down.svg"
+              width={140}
+              height={81}
+              alt="Mayo"
+              className="w-4 h-4 cursor-pointer"
+            />
+          </div>
+          {showMax && <div className="flex gap-2 mt-3 text-xs text-right">
+            <div className="text-[#636366]">Balance: {balance}</div>
+            <button
+              className={`bg-red-500 ${Montserrat.className} bg-clip-text bg-[linear-gradient(180deg,#BF72FA_0%,#BF72FA_100%,#fff_100%)] leading-[22px]`}
+              onClick={() => { setAmount(200000), onAmountChange(200000) }}
+            >
+              <Image
+                src="/imgs/max.svg"
+                width={140}
+                height={81}
+                alt="Mayo"
+                className="w-6"
+              />
+            </button>
 
+          </div>
+          }
         </div>
-        }
-      </div>
-    </header>
-  </section>
-);
+      </header>
+    </section>
+  )
+}
 
 
 const SwapLoading: React.FC<any> = ({
   progress,
-  handleCLose
+  handleCLose,
+  fromAmount,
+  toAmount
 }) => {
   const { address, chain, isConnected } = useAccount();
   const [active, setActive] = React.useState(true);
@@ -174,7 +184,7 @@ const SwapLoading: React.FC<any> = ({
               className="w-6 h-6 cursor-pointer"
             />
             <div className={`${Montserrat.className} cursor-pointer justify-center text-sm text-[#fff]`}>
-              200k MAYO
+              {fromAmount} MAYO
             </div>
           </div>
           <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -182,14 +192,14 @@ const SwapLoading: React.FC<any> = ({
           </svg>
           <div className="flex items-center gap-4">
             <Image
-              src="/icons/mayo-avatar.svg"
+              src="/icons/mayo-avatar-new.svg"
               width={140}
               height={81}
               alt="Mayo"
               className="w-6 h-6 cursor-pointer"
             />
             <div className={`${Montserrat.className} cursor-pointer justify-center text-sm text-[#fff]`}>
-              2M MAYO
+              {toAmount} MAYO
             </div>
           </div>
 
@@ -219,10 +229,17 @@ const SwapLoading: React.FC<any> = ({
 const SwapComponent: React.FC = () => {
   const [progressCount, setProgressCount] = React.useState(0)
   const [showoader, setShowLoader] = React.useState(false)
+  const [isWalletConnected, setIsConnected] = React.useState(false)
+  const [amount, setAmount] = React.useState(0)
+  const [toAmount, setToAmount] = React.useState(0)
   const { address, chain, isConnected } = useAccount();
 
   const { openConnectModal } = useConnectModal();
 
+  const handleWalletConnect = () => {
+    setIsConnected(true)
+    openConnectModal()
+  }
   const handleExchange = () => {
 
     // setProgressCount(10)
@@ -250,7 +267,7 @@ const SwapComponent: React.FC = () => {
 
       </div>
       <div className="absolute -top-[14px] left-[105px] z-10 pointer-events-none -rotate-[150deg]">
-         <Image
+        <Image
           src="/imgs/mayo-1.png"
           width={16}
           height={41}
@@ -258,7 +275,7 @@ const SwapComponent: React.FC = () => {
         />
       </div>
       <div className="absolute top-[29px] right-[-6px] z-10 pointer-events-none -rotate-[150deg]">
-         <Image
+        <Image
           src="/imgs/mayo-1.png"
           width={12}
           height={41}
@@ -282,7 +299,7 @@ const SwapComponent: React.FC = () => {
         />
       </div>
       <div className="absolute -bottom-[3px] left-[80px] z-10 pointer-events-none -rotate-[150deg]">
-         <Image
+        <Image
           src="/imgs/mayo-1.png"
           width={22}
           height={41}
@@ -306,7 +323,7 @@ const SwapComponent: React.FC = () => {
         />
       </div>
 
-      <header className="flex flex-col justify-center pr-2 pl-3 text-lg leading-5 text-white">
+      <header className="flex flex-col justify-center pr-2 pl-3 text-lg leading-5 text-white mb-3">
         <div className="flex gap-5 justify-between py-2">
           <h1 className={`${Geom.className} my-auto text-lg`}>Migrate to New Contract</h1>
           <Image
@@ -329,6 +346,7 @@ const SwapComponent: React.FC = () => {
           tokenSrc="/icons/mayo-avatar.svg"
           maxAction="Max"
           showMax={true}
+          onAmountChange={(amount: any) => setToAmount(amount)}
         />
         <div className="absolute top-[43%] left-[45%] z-0 cursor-pointer">
           <Image
@@ -341,22 +359,24 @@ const SwapComponent: React.FC = () => {
         </div>
         <InfoSection
           title="You Receive"
-          balance=""
+          balance={''}
+          toAmount={toAmount}
           token="MAYO"
           tokenAlt="Mayo Token"
           tokenSrc="/icons/mayo-avatar-new.svg"
           maxAction=""
           showMax={false}
+          onAmountChange={(amount: any) => setToAmount(amount)}
         />
       </section>
-      {!isConnected ? <button
-        className={`${Geom.className} justify-center items-center p-2.5 mt-3 text-md leading-5 text-[#8000E4] rounded-lg bg-stone-950`}
+      {!isWalletConnected ? <button
+        className={`${Geom.className} justify-center items-center p-2.5 mt-4 text-md leading-5 text-[#8000E4] rounded-lg bg-stone-950`}
         tabIndex={0}
-        onClick={openConnectModal}
+        onClick={handleWalletConnect}
       >
         Connect Wallet
       </button> : <button
-        className={`${Geom.className} justify-center items-center p-2.5 py-3 mt-3 text-md md:text-md leading-5 text-[#FFF8E5] rounded-lg bg-[#8000E4]`}
+        className={`${Geom.className} justify-center items-center p-2.5 py-3 mt-4 text-md md:text-md leading-5 text-[#FFF8E5] rounded-lg bg-[#8000E4]`}
         tabIndex={0}
         onClick={() => {
           setShowLoader(true)
@@ -366,7 +386,7 @@ const SwapComponent: React.FC = () => {
       </button>}
 
       {/*  */}
-      {showoader && <SwapLoading progress={progressCount} handleCLose={() => setShowLoader(false)} />}
+      {showoader && <SwapLoading progress={progressCount} handleCLose={() => setShowLoader(false)} fromAmount={toAmount} toAmount={toAmount} />}
     </main>
   );
 };
