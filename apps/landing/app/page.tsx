@@ -488,7 +488,7 @@ function Artworks() {
 
                     </div>
                 </div>
-                <div className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[13deg] md:rotate-[6deg] lg:rotate-[2.5deg] scale-[1.08] md:scale-[1.1] lg:scale-[1.07] absolute top-[385px] md:top-[216px] lg:top-[38px]  opacity-[0.2] -z-1 h-[100%]">
+                <div className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[13deg] md:rotate-[6deg] lg:rotate-[2.5deg] 2xl:rotate-[0deg] scale-[1.08] md:scale-[1.1] lg:scale-[1.07] absolute top-[385px] md:top-[216px] lg:top-[38px] 2xl:top-[5px]  opacity-[0.2] -z-1 h-[100%]">
                     <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px]  items-center bg-black ">
                         <RedactedPictureFrame className='rotate-[-2deg]' />
                         <RedactedPictureFrame className='rotate-[-2deg]  relative ' />
