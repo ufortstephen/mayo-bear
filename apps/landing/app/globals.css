@@ -44,14 +44,8 @@
     transform-origin: 50% 50%;
 }
 
-.bg-clip-text {
-    /* background: linear-gradient(0deg, hsla(274, 100%, 45%, 1) 48%, hsla(270, 99%, 59%, 1) 55%);
-    background: hsla(274, 100%, 45%, 1);
-
-    background: linear-gradient(0deg, hsla(274, 100%, 45%, 1) 48%, hsla(270, 99%, 59%, 1) 55%);
-
-    background: -moz-linear-gradient(0deg, hsla(274, 100%, 45%, 1) 48%, hsla(270, 99%, 59%, 1) 55%);
-
-    background: -webkit-linear-gradient(0deg, hsla(274, 100%, 45%, 1) 48%, hsla(270, 99%, 59%, 1) 55%);
-    background-clip: text; */
+@media(min-width: 854px) and (max-width: 1023px) {
+    .mayo-hero-cta {
+        top: 50px !important;
+    }
 }

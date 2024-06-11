@@ -9,7 +9,7 @@ import { CONTRACT_ADDRESS } from '@/consts'
 
 function Hero() {
     return (
-        <div className="2xl:bg-[#6700B7] relative w-full max-h-[1013px] 2xl:max-h-[2200px]"> 
+        <div className="bg-[#6700B7] relative w-full max-h-[998px] md:max-h-[1998px] lg:max-h-[998px]">
             <div className="flex flex-row p-[20px] absolute top-0 w-full z-20">
                 <Image
                     src={'/imgs/logo.png'}
@@ -112,11 +112,58 @@ function Hero() {
                     </div> */}
                 </div>
             </div>
-            <div className="h-[1113px] 2xl:h-[1900px]  hidden sm:flex overflow-x-hidden relative z-10">
+            <div className="absolute -top-5 w-screen z-10  overflow-y-hidden">
+                <Image
+                    src={'/imgs/jars2.png'}
+                    alt={''}
+                    className="object-cover object-center md:object-cover mx-auto h-full w-[100%] scale-1 2xl:scale-[1]"
+                    width={4096}
+                    height={2652}
+                />
+            </div>
+            {/* <div className="mayo-jars-img h-[1200px] hidden sm:flex overflow-x-hidden absolute top-0 left-0 w-screen z-20 overflow-y-">
+                <Image
+                    src={'/imgs/jars2.png'}
+                    alt={''}
+                    className="object-contain object-center md:object-contain mx-auto h-full w-[110%]"
+                    width={4096}
+                    height={2652}
+                />
+
+            </div> */}
+            {/* <div className="h-[1113px] 2xl:h-[1900px]  hidden sm:flex overflow-x-hidden relative z-10">
+                <Image
+                    src={'/imgs/mayor.png'}
+                    alt={''}
+                    className="object-cover  2xl:object-cover mx-auto h-full w-full max-w-[1612px] 2xl:max-w-[100%]"
+                    width={4096}
+                    height={2652}
+                />
                 <Image
                     src={'/imgs/mayo-new.png'}
                     alt={''}
                     className="object-cover  2xl:object-cover mx-auto h-full w-full max-w-[1612px] 2xl:max-w-[100%]"
+                    width={4096}
+                    height={2652}
+                />
+
+            </div> */}
+            <div className="h-[1024px] lg:h-[1313px] hidden sm:flex overflow-hidden relative z-10">
+                <Image
+                    src={'/imgs/mayo-hero.png'}
+                    alt={''}
+                    className="object-contain object-center md:object-contain mx-auto h-full w-[90%] lg:w-[1112px] max-w-[1512px] scale-[1.08]"
+                    width={4096}
+                    height={2652}
+                />
+
+            </div>
+
+            <div className="h-[1200px] hidden sm:flex overflow-x-hidden absolute -top-[390px] md:-top-[460px] left-0 w-screen z-10 overflow-y-hidden">
+                <Image
+                    src={'/imgs/mayo-glow.png'}
+                    alt={''}
+                    className="object-contain object-center md:object-contain mx-auto h-full w-[30%] 2xl:w-[20%] scale-[1.08] 2xl:scale-1"
                     width={4096}
                     height={2652}
                 />
@@ -127,19 +174,13 @@ function Hero() {
                 <Image
                     src={'/imgs/mayobear-mobile-2.png'}
                     alt={''}
-                    className="object-cover overflow-visible mx-auto w-full h-full z-10 sm:hidden"
+                    className="object-cover overflow-visible mx-auto w-full h-full z-10 md:hidden"
                     width={1170}
                     height={2342}
                 />
 
             </div>
-            {/* <Image
-                src={'/imgs/mayobear-mobile.png'}
-                alt={''}
-                className="object-cover overflow-visible mx-auto w-full h-full z-10 sm:hidden"
-                width={1170}
-                height={2342}
-            /> */}
+
             <div className="absolute top-[70%] md:top-[60%] -left-24 md:left-0 w-[600px] md:w-full -z-1">
                 <Image
                     src={'/imgs/ellipse.svg'}
@@ -151,7 +192,7 @@ function Hero() {
             </div>
 
             {/* <div className="absolute w-[317px] md:w-[494px] left-1/2 transform -translate-x-[51%] bottom-[23px] md:bottom-[20px]lg:bottom-[30px] xl:bottom-[0px] 2xl:bottom-[-36px] flex flex-col gap-[8px]"> */}
-            <div className="w-[317px] md:w-[494px] -mt-[226px] sm:-mt-[186px] lg:-mt-[196px]  mx-auto flex flex-col gap-[8px] relative z-50">
+            <div className="w-[317px] md:w-[494px] -mt-[226px] sm:-mt-[370px] lg:-mt-[400px]  mx-auto flex flex-col gap-[8px] relative z-50 sm:scale-[0.7] xl:scale-[1] mayo-hero-cta">
                 <MayoBtn />
                 <div className="flex gap-[24px] w-full justify-center">
                     <Image
@@ -959,7 +1000,7 @@ export default function Home() {
                 <SpotifyPlaylist />
                 <Socials />
                 <div className="absolute top-[48%] md:top-[40%] -left-[200px] xl:-left-[180px]  rounded-full h-[600px] md:h-[900px] 2xl:h-[1200px] z-[1] ">
-                   <p>Hello</p>
+                    <p>Hello</p>
                     <Image
                         src={'/imgs/ellipses-2.svg'}
                         alt={''}
@@ -969,6 +1010,6 @@ export default function Home() {
                     />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
