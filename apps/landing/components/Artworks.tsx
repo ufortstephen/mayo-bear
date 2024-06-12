@@ -101,10 +101,6 @@ export default function MayoArtworks() {
     const swiperRef = useRef<any>(null);
     const [currentScrollLeft, setCurrentScrollLeft] = useState<number>(0)
 
-    // console.log(swiperRef);
-
-    // console.log(currentScrollPosition, currentScrollLeft);
-
     useEffect(() => {
         const targetElement = targetElementRef.current;
         if (targetElement) {
@@ -126,24 +122,19 @@ export default function MayoArtworks() {
                         left: swiperRef?.current?.previousTranslate - currentScrollLeft,
                         behavior: 'auto'
                     })
+                    setCurrentScrollLeft(currentScrollPosition)
                 }
                 else if (swiperRef?.current?.previousTranslate > currentScrollLeft) {
                     targetElement.scrollBy({
-                        left: (swiperRef?.current?.previousTranslate - currentScrollLeft),
+                        left: (+currentScrollPosition - swiperRef?.current?.previousTranslate),
                         behavior: 'auto'
                     })
+                    setCurrentScrollLeft(currentScrollPosition)
                 }
-                // else {
-                //     console.log('no', -(swiperRef?.current?.previousTranslate - currentScrollLeft));
 
-                //     targetElement.scrollBy({
-                //         left: -(swiperRef?.current?.previousTranslate - currentScrollLeft),
-                //         behavior: 'auto'
-                //     })
-                // }
             }
         }
-        setCurrentScrollLeft(currentScrollPosition)
+
 
     }, [currentScrollPosition])
 
@@ -162,7 +153,7 @@ export default function MayoArtworks() {
                     className='h-max w-full rounded-lg h-max overflow-y-hidden rotate-[-3deg] scale-[1.1] relative z-20 mt-20 lg:mt-0 bg-black'
                     mousewheel
                     slidesPerView={1.5}
-                    onScroll={(e: any) => {
+                    onProgress={(e: any) => {
                         swiperRef.current = e;
                         setCurrentScrollPosition(swiperRef.current?.translate)
                     }
