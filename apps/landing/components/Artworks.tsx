@@ -22,7 +22,7 @@ function RedactedPictureFrame({ className, imgSrc }: { className?: string, imgSr
                 className={`w-full h-full flex text-[#FFF8E5] relative bg- ${Skincake.className} m-auto`}
             >
 
-                <div className="absolute -top-10 left-0 w-full h-max flex items-center justify-between gap-4 z-20">
+                <div className="absolute -top-10 left-0 w-full h-max flex items-center justify-between gap-4 z-20 px-3">
                     <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
                         <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
                     </div>
@@ -51,7 +51,7 @@ function RedactedPictureFrame({ className, imgSrc }: { className?: string, imgSr
 
 
                 </div>
-                <div className="absolute -bottom-10 left-0 w-full 2xl:w-full h-max flex items-center justify-between gap-4 z-20">
+                <div className="absolute -bottom-10 left-0 w-full 2xl:w-full h-max flex items-center justify-between gap-4 z-20 px-3">
                     <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
                         <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
                     </div>
@@ -79,6 +79,16 @@ function RedactedPictureFrame({ className, imgSrc }: { className?: string, imgSr
                     </div>
 
 
+                </div>
+                <div className="hidden md:flex  absolute -top-10 md:-right-[101%] lg:-right-[107%] xl:-right-[102%] 2xl:-right-[104%] w-full 2xl:w-full h-max flex items-center justify-between gap-4 z-20">
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
+                </div>
+                <div className="hidden md:flex absolute -bottom-10 md:-right-[101%] lg:-right-[107%] xl:-right-[102%] 2xl:-right-[104%] w-full 2xl:w-full h-max flex items-center justify-between gap-4 z-20">
+                    <div className="h-[26px] w-[26px]  rounded-full bg-gradient-to-r from-[#494B54] via-[#7300FF] to-y[#7300FF] flex items-center justify-center">
+                        <div className="w-[22px] h-[22px] rounded-full bg-white"> &nbsp;</div>
+                    </div>
                 </div>
                 <div className="m-auto">
 
@@ -102,10 +112,12 @@ export default function MayoArtworks() {
     const [currentScrollLeft, setCurrentScrollLeft] = useState<number>(0)
 
     useEffect(() => {
-        const targetElement = targetElementRef.current;
+        const targetElement = targetElementRef.current;        
         if (targetElement) {
+            console.log(targetElement.scrollWidth);
+            
             targetElement.scrollBy({
-                left: targetElement.scrollWidth,
+                left: targetElement.offsetWidth,
                 behavior: 'auto'
             })
         }
@@ -119,14 +131,14 @@ export default function MayoArtworks() {
                 if (swiperRef?.current?.previousTranslate < currentScrollLeft) {
                     // is scrolled back
                     targetElement.scrollBy({
-                        left: swiperRef?.current?.previousTranslate - currentScrollLeft,
+                        left: (swiperRef?.current?.previousTranslate - currentScrollLeft) / 1.2,
                         behavior: 'auto'
                     })
                     setCurrentScrollLeft(currentScrollPosition)
                 }
                 else if (swiperRef?.current?.previousTranslate > currentScrollLeft) {
                     targetElement.scrollBy({
-                        left: (+currentScrollPosition - swiperRef?.current?.previousTranslate),
+                        left: (+currentScrollPosition - swiperRef?.current?.previousTranslate) / 1.2,
                         behavior: 'auto'
                     })
                     setCurrentScrollLeft(currentScrollPosition)
