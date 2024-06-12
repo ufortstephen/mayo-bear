@@ -113,13 +113,16 @@ function Hero() {
                 </div>
             </div>
             <div className="absolute -top-5 w-screen z-10  overflow-y-hidden">
-                <Image
+                <img src="/imgs/jars2.png" className="hide-events object-cover object-center md:object-cover mx-auto h-full w-[100%] scale-1 2xl:scale-[1] opacity-1"
+                    alt="" />
+                {/* <Image
+                    priority={true}
                     src={'/imgs/jars2.png'}
                     alt={''}
-                    className="object-cover object-center md:object-cover mx-auto h-full w-[100%] scale-1 2xl:scale-[1]"
+                    className="object-cover object-center md:object-cover mx-auto h-full w-[100%] scale-1 2xl:scale-[1] opacity-1"
                     width={4096}
                     height={2652}
-                />
+                /> */}
             </div>
             {/* <div className="mayo-jars-img h-[1200px] hidden sm:flex overflow-x-hidden absolute top-0 left-0 w-screen z-20 overflow-y-">
                 <Image
@@ -149,21 +152,26 @@ function Hero() {
 
             </div> */}
             <div className="h-[1024px] lg:h-[1313px] hidden sm:flex overflow-hidden relative z-10">
-                <Image
+                <img src="/imgs/mayo-hero.png" alt="" className="hide-events object-contain object-center md:object-contain mx-auto  w-[90%] lg:w-[1112px] max-w-[1512px] scale-[1.08] opacity-1"
+                />
+                {/* <Image
+
                     src={'/imgs/mayo-hero.png'}
                     alt={''}
-                    className="object-contain object-center md:object-contain mx-auto h-full w-[90%] lg:w-[1112px] max-w-[1512px] scale-[1.08]"
+                    className="object-contain object-center md:object-contain mx-auto h-full w-[90%] lg:w-[1112px] max-w-[1512px] scale-[1.08] opacity-0"
                     width={4096}
                     height={2652}
-                />
+                    onLoadingComplete={(e:any) => e.classList.remove('opacity-0')}
+                /> */}
 
             </div>
 
             <div className="h-[1200px] hidden sm:flex overflow-x-hidden absolute -top-[390px] md:-top-[460px] left-0 w-screen z-10 overflow-y-hidden">
                 <Image
+                    priority={true}
                     src={'/imgs/mayo-glow.png'}
                     alt={''}
-                    className="object-contain object-center md:object-contain mx-auto h-full w-[30%] 2xl:w-[20%] scale-[1.08] 2xl:scale-1"
+                    className="hide-events object-contain object-center md:object-contain mx-auto h-full w-[30%] 2xl:w-[20%] scale-[1.08] 2xl:scale-1 opacity-1"
                     width={4096}
                     height={2652}
                 />
@@ -174,18 +182,18 @@ function Hero() {
                 <Image
                     src={'/imgs/mayobear-mobile-2.png'}
                     alt={''}
-                    className="object-cover overflow-visible mx-auto w-full h-full z-10 md:hidden"
+                    className="hide-events object-cover overflow-visible mx-auto w-full h-full z-10 md:hidden"
                     width={1170}
                     height={2342}
                 />
 
             </div>
 
-            <div className="absolute top-[70%] md:top-[60%] -left-24 md:left-0 w-[600px] md:w-full -z-1">
+            <div className="absolute top-[70%] md:top-[60%] lg:top-[48%] 2xl:top-[15%] -left-24 md:left-0 w-[600px] md:w-full -z-1">
                 <Image
                     src={'/imgs/ellipse.svg'}
                     alt={''}
-                    className='mx-auto w-[100%] md:w-[950px] 2xl:w-[1400px] mx-auto h-max'
+                    className='hide-events mx-auto w-[100%] md:w-[950px] 2xl:w-[1400px] mx-auto h-max'
                     width={1170}
                     height={2342}
                 />
@@ -195,58 +203,85 @@ function Hero() {
             <div className="w-[317px] md:w-[494px] -mt-[226px] sm:-mt-[370px] lg:-mt-[400px]  mx-auto flex flex-col gap-[8px] relative z-50 sm:scale-[0.7] xl:scale-[1] mayo-hero-cta">
                 <MayoBtn />
                 <div className="flex gap-[24px] w-full justify-center">
-                    <Image
-                        onClick={() => {
-                            window.open(
-                                `https://dexscreener.com/ethereum/${CONTRACT_ADDRESS}`,
-                                '_blank'
-                            )
-                        }}
-                        className="cursor-pointer hover:opacity-80"
-                        src={'/icons/dexscreener.png'}
-                        alt={''}
-                        width={21.88}
-                        height={26}
-                    />
-                    <Image
-                        onClick={() => {
-                            window.open(
-                                `https://etherscan.io/address/${CONTRACT_ADDRESS}`,
-                                '_blank'
-                            )
-                        }}
-                        className="cursor-pointer hover:opacity-80"
-                        src={'/icons/etherscan.png'}
-                        alt={''}
-                        width={26}
-                        height={26}
-                    />
-                    <Image
-                        onClick={() => {
-                            window.open(
-                                `https://www.dextools.io/app/en/ether/pair-explorer/${CONTRACT_ADDRESS}`,
-                                '_blank'
-                            )
-                        }}
-                        className="cursor-pointer hover:opacity-80"
-                        src={'/icons/dex.png'}
-                        alt={''}
-                        width={22.6}
-                        height={26}
-                    />
-                    <Image
-                        onClick={() => {
-                            window.open(
-                                'https://twitter.com/MayoBearCoinETH',
-                                '_blank'
-                            )
-                        }}
-                        className="cursor-pointer hover:opacity-80"
-                        src={'/icons/x.png'}
-                        alt={''}
-                        width={26}
-                        height={26}
-                    />
+                    <div className='cursor-pointer hover:opacity-80' onClick={() => {
+                        window.open(
+                            `https://dexscreener.com/ethereum/${CONTRACT_ADDRESS}`,
+                            '_blank'
+                        )
+                    }}>
+                        <Image
+
+                            className="hide-events cursor-pointer hover:opacity-80"
+                            src={'/icons/dexscreener.png'}
+                            alt={''}
+                            width={21.88}
+                            height={26}
+                        />
+                    </div>
+
+                    <div className='cursor-pointer hover:opacity-80' onClick={() => {
+                        window.open(
+                            `https://etherscan.io/address/${CONTRACT_ADDRESS}`,
+                            '_blank'
+                        )
+                    }}>
+                        <Image
+                            onClick={() => {
+                                window.open(
+                                    `https://etherscan.io/address/${CONTRACT_ADDRESS}`,
+                                    '_blank'
+                                )
+                            }}
+                            className="hide-events cursor-pointer hover:opacity-80"
+                            src={'/icons/etherscan.png'}
+                            alt={''}
+                            width={26}
+                            height={26}
+                        />
+                    </div>
+
+                    <div className='cursor-pointer hover:opacity-80' onClick={() => {
+                        window.open(
+                            `https://www.dextools.io/app/en/ether/pair-explorer/${CONTRACT_ADDRESS}`,
+                            '_blank'
+                        )
+                    }}>
+                        <Image
+                            onClick={() => {
+                                window.open(
+                                    `https://www.dextools.io/app/en/ether/pair-explorer/${CONTRACT_ADDRESS}`,
+                                    '_blank'
+                                )
+                            }}
+                            className="hide-events cursor-pointer hover:opacity-80"
+                            src={'/icons/dex.png'}
+                            alt={''}
+                            width={22.6}
+                            height={26}
+                        />
+                    </div>
+
+                    <div className='cursor-pointer hover:opacity-80' onClick={() => {
+                        window.open(
+                            'https://twitter.com/MayoBearCoinETH',
+                            '_blank'
+                        )
+                    }}>
+                        <Image
+                            onClick={() => {
+                                window.open(
+                                    'https://twitter.com/MayoBearCoinETH',
+                                    '_blank'
+                                )
+                            }}
+                            className="hide-events cursor-pointer hover:opacity-80"
+                            src={'/icons/x.png'}
+                            alt={''}
+                            width={26}
+                            height={26}
+                        />
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -260,7 +295,7 @@ function Info() {
                 <Image
                     src={'/imgs/ellipses-8.svg'}
                     alt={''}
-                    className="object-cover overflow-visible mx-auto w-[100%] md:w-full mx-auto "
+                    className="hide-events object-cover overflow-visible mx-auto w-[100%] md:w-full mx-auto "
                     width={1170}
                     height={2342}
                 />
@@ -282,6 +317,7 @@ function Info() {
                         <Image
                             width={22}
                             height={22}
+                            className='hide-events'
                             src={'/icons/telegram.svg'}
                             alt={''} />
                         Join The Fam
@@ -290,7 +326,7 @@ function Info() {
 
                 <div className="mx-auto my-auto lg:ml-auto">
                     <PictureFrame
-                        className="w-[100%] mx-auto md:ml-0 md:mr-0 md:w-full h-full lg:w-[430px] lg:h-[430px] rotate-6 shadow-2xl border-[23px]"
+                        className="hide-events w-[100%] mx-auto md:ml-0 md:mr-0 md:w-full h-full lg:w-[430px] lg:h-[430px] rotate-6 shadow-2xl border-[23px]"
                         img={'/imgs/mayo-space.jpeg'} />
                 </div>
 
@@ -304,44 +340,55 @@ function Info() {
                     Places You May <br className='md:hidden' /> Have Seen Us
                 </div>
                 <div className="flex flex-col items-center justify-between px-[32px] lg:px-0 lg:flex-row w-full max-w-[1024px] gap-10 md:gap-[60px] mx-auto pt-[40px]">
-                    <Image
-                        width={22}
-                        height={22}
-                        src={'/icons/yahoo.svg'}
-                        alt={''} className='cursor-pointer w-[120px] md:w-[140px]'
-                        onClick={() => {
-                            window.location.href = '/'
-                        }}
-                    />
-                    <Image
-                        width={22}
-                        height={22}
-                        src={'/icons/tradingview.svg'}
-                        alt={''} className='cursor-pointer w-[140px] md:w-[200px]'
-                        onClick={() => {
-                            window.location.href = '/'
-                        }}
-                    />
-                    <Image
-                        width={22}
-                        height={22}
-                        src={'/icons/busines-insider.svg'}
-                        alt={''} className='cursor-pointer w-[100px] md:w-[120px]'
-                        onClick={() => {
-                            window.location.href = '/'
-                        }}
-                    />
 
-                    <div className="flex items-center gap-2">
+                    <div className='cursor-pointer relative z-20' onClick={() => {
+                        window.location.href = '/'
+                    }}>
+                        <Image
+                            width={22}
+                            height={22}
+                            src={'/icons/yahoo.svg'}
+                            alt={''} className='hide-events cursor-pointer w-[120px] md:w-[140px]'
+
+                        />
+                    </div>
+                    <div className='cursor-pointer' onClick={() => {
+                        window.location.href = '/'
+                    }}>
+
+                        <Image
+                            width={22}
+                            height={22}
+                            src={'/icons/tradingview.svg'}
+                            alt={''} className='hide-events cursor-pointer w-[140px] md:w-[200px]'
+
+                        />
+                    </div>
+                    <div className='cursor-pointer' onClick={() => {
+                        window.location.href = '/'
+                    }}>
+
+                        <Image
+                            width={22}
+                            height={22}
+                            src={'/icons/busines-insider.svg'}
+                            alt={''} className='hide-events cursor-pointer w-[100px] md:w-[120px]'
+
+                        />
+                    </div>
+
+
+
+                    <div className="flex items-center gap-2 cursor-pointer" onClick={() => {
+                        window.open('https://t.me/PurpleAIPortal', '_blank')
+                    }}>
                         <span className=''>🟪</span>
                         <Image
                             width={22}
                             height={22}
                             src={'/icons/pai-telegram.svg'}
-                            alt={''} className='cursor-pointer w-[120px] md:w-[160px]'
-                            onClick={() => {
-                                window.open('https://t.me/PurpleAIPortal', '_blank')
-                            }}
+                            alt={''} className='hide-events cursor-pointer w-[120px] md:w-[160px]'
+
                         />
                     </div>
 
@@ -364,7 +411,7 @@ function PictureFrame({ img, className }: { img: string; className?: string }) {
                 alt={''}
                 width={332.41}
                 height={332.41}
-                className="object-cover w-full h-full"
+                className="hide-events object-cover w-full h-full"
             />
         </div>
     )
@@ -908,16 +955,19 @@ function App() {
 
                 </div>
             </div>
-            <Image
-                onClick={() => {
-                    window.location.href = 'https://purplesquare.ai/'
-                }}
-                className="mx-auto cursor-pointer"
-                src={'/imgs/app.svg'}
-                alt={''}
-                width={328}
-                height={652}
-            />
+            <div className='cursor-pointer w-max mx-auto' onClick={() => {
+                window.location.href = 'https://purplesquare.ai/'
+            }}>
+                <Image
+
+                    className="hide-events mx-auto cursor-pointer"
+                    src={'/imgs/app.svg'}
+                    alt={''}
+                    width={328}
+                    height={652}
+                />
+            </div>
+
         </div>
     )
 }
@@ -938,7 +988,7 @@ function Socials() {
                             width={22}
                             height={22}
                             src={'/icons/telegram.svg'}
-                            className='w-4 h-4'
+                            className='hide-events w-4 h-4'
                             alt={''} />
                     </div>
                     <div className='w-8 h-8 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80'
@@ -950,7 +1000,7 @@ function Socials() {
                             width={22}
                             height={22}
                             src={'/icons/x.svg'}
-                            className='w-4 h-4'
+                            className='hide-events w-4 h-4'
                             alt={''} />
                     </div>
                 </div>
@@ -1055,6 +1105,7 @@ function Mayonomics() {
                         alt={''}
                         width={747}
                         height={727}
+                        className='hide-events'
                     />
                     <div className="hidden lg:block lg:absolute mx-auto text-center lg:top-[110px] lg:right-[-15%]">
                         <div

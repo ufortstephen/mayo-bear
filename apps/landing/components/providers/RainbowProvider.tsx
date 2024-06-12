@@ -84,10 +84,14 @@ export default function RainbowProvider({
     }
 
     const myTheme = merge(darkTheme(), {
+        blurs: {
+            modalOverlay: '',
+        },
         colors: {
             accentColor: '#8000E4',
             accentColorForeground: 'black',
             modalBackground: '#101011',
+            modalBackdrop: '#101011e6',
         },
     } as Theme);
 

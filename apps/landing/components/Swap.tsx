@@ -7,6 +7,7 @@ import {
   useChainModal,
 } from '@rainbow-me/rainbowkit';
 import { useAccount } from "wagmi";
+import { formatCurrency } from "@/utils/helpers";
 
 type InfoSectionProps = {
   title: string;
@@ -43,9 +44,10 @@ const InfoSection: React.FC<InfoSectionProps> = ({
           <div className={`${Montserrat.className}  justify-center self-start text-xs text-[#636366] mb-3`}>
             {title}
           </div>
+
           {showMax ? <input type="text" name="" onChange={(e: any) => { setAmount(e.target.value), onAmountChange(e.target.value) }} id="" placeholder="0" value={amount} className={`${Montserrat.className} h-10 bg-transparent border-none outline-none text-[#fff] text-2xl font-[500] w-full`} />
             : <input type="text" name="" disabled onChange={(e: any) => { setAmount(e.target.value), onAmountChange(e.target.value) }} id="" placeholder="0" value={toAmount} className={`${Montserrat.className} h-10 bg-transparent border-none outline-none text-[#fff] text-2xl font-[500] w-full`} />}          <div className={`${Montserrat.className}  justify-center self-start text-xs text-[#636366] mt-1`}>
-            ${amount ? amount * 0.0002 : toAmount * 0.0002}
+            {amount ? formatCurrency((amount * 0.0002), 'usd') : toAmount ? formatCurrency((toAmount * 0.0002), 'usd') : formatCurrency((0), 'usd')}
           </div>
         </div>
         <div className="flex flex-col justify-center py-1.5">
@@ -55,7 +57,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
               width={140}
               height={81}
               alt="Mayo"
-              className="w-8 h-8 cursor-pointer"
+              className="hide-events w-8 h-8 cursor-pointer"
             />
             <div className="self-stretch my-auto text-sm">{token}</div>
             <Image
@@ -181,7 +183,7 @@ const SwapLoading: React.FC<any> = ({
               width={140}
               height={81}
               alt="Mayo"
-              className="w-6 h-6 cursor-pointer"
+              className="hide-events w-6 h-6 cursor-pointer"
             />
             <div className={`${Montserrat.className} cursor-pointer justify-center text-sm text-[#fff]`}>
               {fromAmount} MAYO
@@ -196,7 +198,7 @@ const SwapLoading: React.FC<any> = ({
               width={140}
               height={81}
               alt="Mayo"
-              className="w-6 h-6 cursor-pointer"
+              className="hide-events w-6 h-6 cursor-pointer"
             />
             <div className={`${Montserrat.className} cursor-pointer justify-center text-sm text-[#fff]`}>
               {toAmount} MAYO
@@ -209,7 +211,7 @@ const SwapLoading: React.FC<any> = ({
         {completed ? 'Transaction Pending...' : 'Proceed in your wallet'}
       </div>
 
-      <button className="absolute w-max top-4 right-6" onClick={() => {
+      <button className="absolute w-max top-4 right-6 cursor-pointer" onClick={() => {
         setActive(false),
           handleCLose()
       }}>
@@ -218,7 +220,7 @@ const SwapLoading: React.FC<any> = ({
           width={140}
           height={81}
           alt="Mayo"
-          className="w-3 h-3 cursor-pointer "
+          className="hide-events w-3 h-3 cursor-pointer "
         />
       </button>
     </main>
@@ -354,7 +356,7 @@ const SwapComponent: React.FC = () => {
             width={140}
             height={81}
             alt="Mayo"
-            className="w-8 h-8 cursor-pointer"
+            className="hide-events  w-8 h-8 cursor-pointer"
           />
         </div>
         <InfoSection
@@ -369,21 +371,44 @@ const SwapComponent: React.FC = () => {
           onAmountChange={(amount: any) => setToAmount(amount)}
         />
       </section>
-      {!isWalletConnected ? <button
-        className={`${Geom.className} justify-center items-center p-2.5 mt-4 text-md leading-5 text-[#8000E4] rounded-lg bg-stone-950`}
-        tabIndex={0}
-        onClick={handleWalletConnect}
-      >
-        Connect Wallet
-      </button> : <button
-        className={`${Geom.className} justify-center items-center p-2.5 py-3 mt-4 text-md md:text-md leading-5 text-[#FFF8E5] rounded-lg bg-[#8000E4]`}
-        tabIndex={0}
-        onClick={() => {
-          setShowLoader(true)
-        }}
-      >
-        Exchange
-      </button>}
+      {
+        isConnected ? <>
+          <button
+            className={`${Geom.className} justify-center items-center p-2.5 py-3 mt-4 text-md md:text-md leading-5 text-[#FFF8E5] rounded-lg bg-[#8000E4]`}
+            tabIndex={0}
+            onClick={() => {
+              setShowLoader(true)
+            }}
+          >
+            Exchange
+          </button>
+        </> : <>
+          <button
+            className={`${Geom.className} justify-center items-center p-2.5 mt-4 text-md leading-5 text-[#8000E4] rounded-lg bg-stone-950`}
+            tabIndex={0}
+            onClick={openConnectModal}
+          >
+            Connect Wallet
+          </button>
+          {/* {!isWalletConnected ? <button
+            className={`${Geom.className} justify-center items-center p-2.5 mt-4 text-md leading-5 text-[#8000E4] rounded-lg bg-stone-950`}
+            tabIndex={0}
+            onClick={handleWalletConnect}
+          >
+            Connect Wallet
+          </button> : <button
+            className={`${Geom.className} justify-center items-center p-2.5 py-3 mt-4 text-md md:text-md leading-5 text-[#FFF8E5] rounded-lg bg-[#8000E4]`}
+            tabIndex={0}
+            onClick={() => {
+              setShowLoader(true)
+            }}
+          >
+            Exchange
+          </button>} */}
+
+        </>
+      }
+
 
       {/*  */}
       {showoader && <SwapLoading progress={progressCount} handleCLose={() => setShowLoader(false)} fromAmount={toAmount} toAmount={toAmount} />}

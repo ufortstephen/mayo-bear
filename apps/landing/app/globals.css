@@ -53,3 +53,8 @@
 .carousel {
     display: flex !important;
 }
+
+img.hide-events,
+picture.hide-events {
+    pointer-events: none;
+}

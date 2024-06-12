@@ -39,6 +39,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en">
+            <head>
+                {/* <link rel="preload" href="/imgs/mayo-hero.png" as="image" /> */}
+            </head>
             <body
                 className={`${Montserrat.className} max-w-full bg-white text-black`}
             >

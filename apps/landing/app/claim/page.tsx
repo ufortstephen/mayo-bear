@@ -30,7 +30,7 @@ function Header() {
     return (
         <div className="w-full fixed left-0 top-0">
 
-            <div className="flex flex-row p-[20px] absolute top-0 w-full z-0">
+            <div className="flex flex-row p-[20px] absolute top-0 w-full z-20">
                 <Image
                     src={'/imgs/mayo-logo.svg'}
                     width={80}
