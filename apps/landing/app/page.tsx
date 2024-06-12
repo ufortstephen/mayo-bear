@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Montserrat, Skincake } from '@/styles/fonts'
 import MayoBtn from '@/components/MayoBtn'
 import { CONTRACT_ADDRESS } from '@/consts'
+import MayoArtworks from '@/components/Artworks'
 
 
 function Hero() {
@@ -122,7 +123,7 @@ function Hero() {
                     className="object-cover object-center md:object-cover mx-auto h-full w-[100%] scale-1 2xl:scale-[1] opacity-0"
                     width={4096}
                     height={2652}
-                    onLoadingComplete={(e:any) => e.classList.remove('opacity-0')}
+                    onLoadingComplete={(e: any) => e.classList.remove('opacity-0')}
                 />
             </div>
             {/* <div className="mayo-jars-img h-[1200px] hidden sm:flex overflow-x-hidden absolute top-0 left-0 w-screen z-20 overflow-y-">
@@ -162,7 +163,7 @@ function Hero() {
                     className="object-contain object-center md:object-contain mx-auto h-full w-[90%] lg:w-[1112px] max-w-[1512px] scale-[1.08] opacity-0"
                     width={4096}
                     height={2652}
-                    onLoadingComplete={(e:any) => e.classList.remove('opacity-0')}
+                    onLoadingComplete={(e: any) => e.classList.remove('opacity-0')}
                 />
 
             </div>
@@ -175,7 +176,7 @@ function Hero() {
                     className="hide-events object-contain object-center md:object-contain mx-auto h-full w-[30%] 2xl:w-[20%] scale-[1.08] 2xl:scale-1 opacity-0"
                     width={4096}
                     height={2652}
-                    onLoadingComplete={(e:any) => e.classList.remove('opacity-0')}
+                    onLoadingComplete={(e: any) => e.classList.remove('opacity-0')}
                 />
 
             </div>
@@ -587,8 +588,9 @@ function Artworks() {
                 </div>
 
             </div>
+            <MayoArtworks />
 
-            <div className='relative   mt-10 h-[300px] md:h-[380px] 2xl:h-[500px]'>
+            {/* <div className='relative   mt-10 h-[300px] md:h-[380px] 2xl:h-[500px]'>
                 <div ref={scrollingElementRef} className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[-3deg] scale-[1.1] relative z-20 mt-20 lg:mt-0">
                     <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px] 2xl:h-[500px]  items-center bg-black ">
                         <RedactedPictureFrame className='rotate-[deg]' imgSrc={'/artworks/first.svg'} />
@@ -622,7 +624,7 @@ function Artworks() {
 
                     </div>
                 </div>
-            </div>
+            </div> */}
 
 
         </div>
