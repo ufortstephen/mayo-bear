@@ -113,16 +113,17 @@ function Hero() {
                 </div>
             </div>
             <div className="absolute -top-5 w-screen z-10  overflow-y-hidden">
-                <img src="/imgs/jars2.png" className="hide-events object-cover object-center md:object-cover mx-auto h-full w-[100%] scale-1 2xl:scale-[1] opacity-1"
-                    alt="" />
-                {/* <Image
+                {/* <img src="/imgs/jars2.png" className="hide-events object-cover object-center md:object-cover mx-auto h-full w-[100%] scale-1 2xl:scale-[1] opacity-0"
+                    alt="" onLoadCapture={(e:any) => e.classList.remove('opacity-0')} /> */}
+                <Image
                     priority={true}
                     src={'/imgs/jars2.png'}
                     alt={''}
-                    className="object-cover object-center md:object-cover mx-auto h-full w-[100%] scale-1 2xl:scale-[1] opacity-1"
+                    className="object-cover object-center md:object-cover mx-auto h-full w-[100%] scale-1 2xl:scale-[1] opacity-0"
                     width={4096}
                     height={2652}
-                /> */}
+                    onLoadingComplete={(e:any) => e.classList.remove('opacity-0')}
+                />
             </div>
             {/* <div className="mayo-jars-img h-[1200px] hidden sm:flex overflow-x-hidden absolute top-0 left-0 w-screen z-20 overflow-y-">
                 <Image
@@ -152,9 +153,9 @@ function Hero() {
 
             </div> */}
             <div className="h-[1024px] lg:h-[1313px] hidden sm:flex overflow-hidden relative z-10">
-                <img src="/imgs/mayo-hero.png" alt="" className="hide-events object-contain object-center md:object-contain mx-auto  w-[90%] lg:w-[1112px] max-w-[1512px] scale-[1.08] opacity-1"
-                />
-                {/* <Image
+                {/* <img src="/imgs/mayo-hero.png" alt="" className="hide-events object-contain object-center md:object-contain mx-auto  w-[90%] lg:w-[1112px] max-w-[1512px] scale-[1.08] opacity-1"
+                /> */}
+                <Image
 
                     src={'/imgs/mayo-hero.png'}
                     alt={''}
@@ -162,7 +163,7 @@ function Hero() {
                     width={4096}
                     height={2652}
                     onLoadingComplete={(e:any) => e.classList.remove('opacity-0')}
-                /> */}
+                />
 
             </div>
 
@@ -171,9 +172,10 @@ function Hero() {
                     priority={true}
                     src={'/imgs/mayo-glow.png'}
                     alt={''}
-                    className="hide-events object-contain object-center md:object-contain mx-auto h-full w-[30%] 2xl:w-[20%] scale-[1.08] 2xl:scale-1 opacity-1"
+                    className="hide-events object-contain object-center md:object-contain mx-auto h-full w-[30%] 2xl:w-[20%] scale-[1.08] 2xl:scale-1 opacity-0"
                     width={4096}
                     height={2652}
+                    onLoadingComplete={(e:any) => e.classList.remove('opacity-0')}
                 />
 
             </div>
