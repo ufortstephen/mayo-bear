@@ -158,6 +158,11 @@ export default function MayoArtworks() {
                         setCurrentScrollPosition(swiperRef.current?.translate)
                     }
                     }
+                    onSliderMove={(e: any) => {
+                        swiperRef.current = e;
+                        setCurrentScrollPosition(swiperRef.current?.translate)
+                    }
+                    }
                     breakpoints={{
                         0: {
 

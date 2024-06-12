@@ -503,56 +503,6 @@ function RedactedPictureFrame({ className, imgSrc }: { className?: string, imgSr
 }
 
 function Artworks() {
-
-    const [scrollDirection, setScrollDirection] = useState<any>('down');
-    const scrollingElementRef = useRef<HTMLDivElement>(null);
-    const targetElementRef = useRef<HTMLDivElement>(null);
-
-    let currentScrollLeft = 0
-    useEffect(() => {
-        const handleScroll = (e: any) => {
-            if (scrollingElementRef.current && targetElementRef.current) {
-                const scrollingElement = scrollingElementRef.current;
-                const targetElement = targetElementRef.current;
-
-
-                // if scrolled right
-                if (e.target.scrollLeft > currentScrollLeft) {
-                    if (scrollingElementRef.current && targetElementRef.current) {
-                        targetElement.scrollBy({
-                            left: currentScrollLeft - e.target.scrollLeft,
-                            behavior: 'auto'
-                        })
-
-                    }
-                }
-                else {
-                    targetElement.classList.add('opacity-0')
-                    targetElement.scrollBy({
-                        left: currentScrollLeft - e.target.scrollLeft,
-                        behavior: 'auto'
-                    })
-                }
-
-                currentScrollLeft = (e.target.scrollLeft)
-            }
-        };
-
-        if (scrollingElementRef.current && targetElementRef.current) {
-            const targetElement = targetElementRef.current;
-            scrollingElementRef.current.addEventListener('scroll', handleScroll);
-            targetElement.scrollBy({
-                left: targetElement.scrollWidth,
-                behavior: 'auto'
-            })
-        }
-
-        return () => {
-            if (scrollingElementRef.current) {
-                scrollingElementRef.current.removeEventListener('scroll', handleScroll);
-            }
-        };
-    }, []);
     return (
         <div className="gap-[0px] flex flex-col w-full  relative pt-[80px] md:pt-[120px]">
             <div className="absolute -top-[30%] md:-top-[20%] -right-[10%] md:-right-[0%] w-[300px] md:w-full overflow-hidden -z-1">
@@ -589,44 +539,6 @@ function Artworks() {
 
             </div>
             <MayoArtworks />
-
-            {/* <div className='relative   mt-10 h-[300px] md:h-[380px] 2xl:h-[500px]'>
-                <div ref={scrollingElementRef} className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[-3deg] scale-[1.1] relative z-20 mt-20 lg:mt-0">
-                    <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px] 2xl:h-[500px]  items-center bg-black ">
-                        <RedactedPictureFrame className='rotate-[deg]' imgSrc={'/artworks/first.svg'} />
-                        <RedactedPictureFrame className='rotate-[deg]  relative -top-0' imgSrc={'/artworks/second.svg'} />
-                        <RedactedPictureFrame className='rotate-[0deg] relative ' imgSrc={'/artworks/third.svg'} />
-                        <RedactedPictureFrame className='rotate-[0deg] relative' imgSrc={'/artworks/forth.svg'} />
-                        <RedactedPictureFrame className='rotate-[0deg]' imgSrc={'/artworks/fifth.svg'} />
-                        <RedactedPictureFrame className='rotate-[0deg]' imgSrc={'/artworks/first.svg'} />
-                        <RedactedPictureFrame className='rotate-[0deg]  relative' imgSrc={'/artworks/second.svg'} />
-                        <RedactedPictureFrame className='rotate-[0deg] relative' imgSrc={'/artworks/third.svg'} />
-                        <RedactedPictureFrame className='rotate-[0deg] relative' imgSrc={'/artworks/forth.svg'} />
-                        <RedactedPictureFrame className='rotate-[0deg]' imgSrc={'/artworks/fifth.svg'} />
-                        <RedactedPictureFrame className='rotate-[0deg]' imgSrc={'/artworks/first.svg'} />
-
-                    </div>
-                </div>
-                <div ref={targetElementRef} className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[7deg] md:rotate-[6deg] lg:rotate-[2deg] 2xl:rotate-[1deg] scale-[1.08] md:scale-[1.1] lg:scale-[1.07] relative top-[-300px] md:top-[-377px] lg:top-[-380px] 2xl:top-[-500px]  opacity-[0.2] -z-1">
-                    <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px] 2xl:h-[500px] items-center bg-black ">
-                        <RedactedPictureFrame className='rotate-[0deg]' />
-                        <RedactedPictureFrame className='rotate-[0deg]  relative ' />
-                        <RedactedPictureFrame className='rotate-[0deg] relative ' />
-                        <RedactedPictureFrame className='rotate-[0deg] relative ' />
-                        <RedactedPictureFrame className='rotate-[0deg]' />
-                        <RedactedPictureFrame className='rotate-[0deg]' />
-                        <RedactedPictureFrame className='rotate-[0deg]' />
-                        <RedactedPictureFrame className='rotate-[0deg]  relative ' />
-                        <RedactedPictureFrame className='rotate-[0deg] relative ' />
-                        <RedactedPictureFrame className='rotate-[0deg] relative ' />
-                        <RedactedPictureFrame className='rotate-[0deg]' />
-                        <RedactedPictureFrame className='rotate-[0deg]' />
-
-                    </div>
-                </div>
-            </div> */}
-
-
         </div>
     )
 }
