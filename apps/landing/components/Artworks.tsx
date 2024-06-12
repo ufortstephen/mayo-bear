@@ -163,6 +163,7 @@ export default function MayoArtworks() {
                     mousewheel
                     slidesPerView={1.5}
                     onScroll={(e: any) => {
+                        swiperRef.current = e;
                         setCurrentScrollPosition(swiperRef.current?.translate)
                     }
                     }
