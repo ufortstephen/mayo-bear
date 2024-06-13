@@ -113,9 +113,7 @@ export default function MayoArtworks() {
 
     useEffect(() => {
         const targetElement = targetElementRef.current;        
-        if (targetElement) {
-            console.log(targetElement.scrollWidth);
-            
+        if (targetElement) {            
             targetElement.scrollBy({
                 left: targetElement.offsetWidth,
                 behavior: 'auto'
@@ -236,8 +234,8 @@ export default function MayoArtworks() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <div ref={targetElementRef} className="lg:mx-auto carousel h-max overflow-y-hidden rotate-[7deg] md:rotate-[4.5deg] lg:rotate-[1deg] 2xl:rotate-[0.1deg] scale-[1.08] md:scale-[1.1] lg:scale-[1.02] 2xl:scale-[1] relative top-[-300px] md:top-[-377px] lg:top-[-365px] 2xl:top-[-470px]  opacity-[0.2] -z-1">
-                    <div className="flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px] 2xl:h-[500px] items-center bg-black ">
+                <div ref={targetElementRef} className="scroll-smooth lg:mx-auto carousel h-max overflow-y-hidden rotate-[7deg] md:rotate-[4.5deg] lg:rotate-[1deg] 2xl:rotate-[0.1deg] scale-[1.08] md:scale-[1.1] lg:scale-[1.02] 2xl:scale-[1] relative top-[-300px] md:top-[-377px] lg:top-[-365px] 2xl:top-[-470px]  opacity-[0.2] -z-1">
+                    <div className="inline-flex flex-nowrap  gap-[0px] bg- h-[300px] md:h-[380px] 2xl:h-[500px] items-center bg-black ">
                         <RedactedPictureFrame className='rotate-[0deg]' />
                         <RedactedPictureFrame className='rotate-[0deg]  relative ' />
                         <RedactedPictureFrame className='rotate-[0deg] relative ' />
@@ -248,6 +246,8 @@ export default function MayoArtworks() {
                         <RedactedPictureFrame className='rotate-[0deg]  relative ' />
                         <RedactedPictureFrame className='rotate-[0deg] relative ' />
                         <RedactedPictureFrame className='rotate-[0deg] relative ' />
+                        <RedactedPictureFrame className='rotate-[0deg]' />
+                        <RedactedPictureFrame className='rotate-[0deg]' />
                         <RedactedPictureFrame className='rotate-[0deg]' />
                         <RedactedPictureFrame className='rotate-[0deg]' />
 
