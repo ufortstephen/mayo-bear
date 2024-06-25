@@ -6,12 +6,18 @@ import {
   useAccountModal,
   useChainModal,
 } from '@rainbow-me/rainbowkit';
-import { useAccount } from "wagmi";
-import { formatCurrency } from "@/utils/helpers";
+import { useAccount, useBalance, useChainId, useContractRead, useReadContract, useReadContracts, useWriteContract } from "wagmi";
+import { formatCurrency, compactNumberFormatter } from "@/utils/helpers";
+import { mayoV2Abi, theMigrationAbi } from "@/utils/abi/Mayov2";
+import { wagmiConfig } from "@/utils/config";
+import { CONTRACT_ADDRESS_V2 } from "@/consts";
+import { MayoV1Abi } from "@/utils/abi/MayoV1";
+import { ethers } from "ethers";
+import { toast } from "react-toastify";
 
 type InfoSectionProps = {
   title: string;
-  balance: string;
+  balance: number;
   token: string;
   tokenAlt: string;
   tokenSrc: string;
@@ -19,6 +25,7 @@ type InfoSectionProps = {
   showMax: boolean;
   onAmountChange: any;
   toAmount?: any
+  ratio: number
 };
 
 
@@ -32,7 +39,8 @@ const InfoSection: React.FC<InfoSectionProps> = ({
   maxAction,
   toAmount,
   showMax,
-  onAmountChange
+  onAmountChange,
+  ratio
 }) => {
 
   const [amount, setAmount] = React.useState(0)
@@ -45,9 +53,15 @@ const InfoSection: React.FC<InfoSectionProps> = ({
             {title}
           </div>
 
-          {showMax ? <input type="text" name="" onChange={(e: any) => { setAmount(e.target.value), onAmountChange(e.target.value) }} id="" placeholder="0" value={amount} className={`${Montserrat.className} h-10 bg-transparent border-none outline-none text-[#fff] text-2xl font-[500] w-full`} />
-            : <input type="text" name="" disabled onChange={(e: any) => { setAmount(e.target.value), onAmountChange(e.target.value) }} id="" placeholder="0" value={toAmount} className={`${Montserrat.className} h-10 bg-transparent border-none outline-none text-[#fff] text-2xl font-[500] w-full`} />}          <div className={`${Montserrat.className}  justify-center self-start text-xs text-[#636366] mt-1`}>
-            {amount ? formatCurrency((amount * 0.0002), 'usd') : toAmount ? formatCurrency((toAmount * 0.0002), 'usd') : formatCurrency((0), 'usd')}
+          {showMax ?
+            <input type="text" name="" onChange={(e: any) => { setAmount(e.target.value), onAmountChange(e.target.value) }}
+              id="" placeholder="0" value={amount}
+              className={`${Montserrat.className} h-10 bg-transparent border-none outline-none text-[#fff] text-2xl font-[500] w-full`} />
+            :
+            <input type="text" name="" disabled onChange={(e: any) => { setAmount(e.target.value), onAmountChange(e.target.value) }} id="" placeholder="0" value={toAmount} className={`${Montserrat.className} h-10 bg-transparent border-none outline-none text-[#fff] text-2xl font-[500] w-full`} />}
+          <div className={`${Montserrat.className}  justify-center self-start text-xs text-[#636366] mt-1`}>
+
+            {amount ? formatCurrency((amount * 0.0002), 'usd') : toAmount ? formatCurrency(((toAmount / ratio) * 0.0002), 'usd') : formatCurrency((amount), 'usd')}
           </div>
         </div>
         <div className="flex flex-col justify-center py-1.5">
@@ -69,10 +83,10 @@ const InfoSection: React.FC<InfoSectionProps> = ({
             />
           </div>
           {showMax && <div className="flex gap-2 mt-3 text-xs text-right">
-            <div className="text-[#636366]">Balance: {balance}</div>
+            <div className="text-[#636366]">Balance: {compactNumberFormatter(Number(balance))}</div>
             <button
               className={`bg-red-500 ${Montserrat.className} bg-clip-text bg-[linear-gradient(180deg,#BF72FA_0%,#BF72FA_100%,#fff_100%)] leading-[22px]`}
-              onClick={() => { setAmount(200000), onAmountChange(200000) }}
+              onClick={() => { setAmount(balance), onAmountChange(balance) }}
             >
               <Image
                 src="/imgs/max.svg"
@@ -96,7 +110,8 @@ const SwapLoading: React.FC<any> = ({
   progress,
   handleCLose,
   fromAmount,
-  toAmount
+  toAmount,
+  hash
 }) => {
   const { address, chain, isConnected } = useAccount();
   const [active, setActive] = React.useState(true);
@@ -128,6 +143,15 @@ const SwapLoading: React.FC<any> = ({
 
     return () => clearInterval(interval);
   }, [active]);
+
+  const handleViewTransaction = () => {
+    if (hash) {
+      window.open(
+        `https://sepolia.etherscan.io/tx/${hash}`,
+        '_blank'
+      )
+    }
+  }
 
 
   return (
@@ -174,7 +198,7 @@ const SwapLoading: React.FC<any> = ({
 
 
       {completed ?
-        <div className={`${Montserrat.className} cursor-pointer justify-center text-sm text-[#8000E4]`}>
+        <div onClick={handleViewTransaction} className={`${Montserrat.className} cursor-pointer justify-center text-sm text-[#8000E4]`}>
           View on Explorer
         </div> : <div className="flex items-center gap-4">
           <div className="flex items-center gap-4">
@@ -207,9 +231,9 @@ const SwapLoading: React.FC<any> = ({
 
         </div>}
 
-      <div className={`${Montserrat.className} cursor-pointer justify-center text-xs text-[#636366]`}>
+      <button onClick={handleViewTransaction} className={`${Montserrat.className} cursor-pointer justify-center text-xs text-[#636366]`}>
         {completed ? 'Transaction Pending...' : 'Proceed in your wallet'}
-      </div>
+      </button>
 
       <button className="absolute w-max top-4 right-6 cursor-pointer" onClick={() => {
         setActive(false),
@@ -232,29 +256,228 @@ const SwapComponent: React.FC = () => {
   const [progressCount, setProgressCount] = React.useState(0)
   const [showoader, setShowLoader] = React.useState(false)
   const [isWalletConnected, setIsConnected] = React.useState(false)
+  const [isExchangeBtnDisabled, setIsExchangeBtnDisabled] = React.useState(false)
+  const [buttonMessage, setButtonMessage] = React.useState('Exchange')
+  const [hash, setHash] = React.useState('')
   const [amount, setAmount] = React.useState(0)
   const [toAmount, setToAmount] = React.useState(0)
   const { address, chain, isConnected } = useAccount();
-
+  const chainId = useChainId();
   const { openConnectModal } = useConnectModal();
 
-  const handleWalletConnect = () => {
-    setIsConnected(true)
-    openConnectModal
+
+
+  const {
+    data,
+    error,
+    isPending
+  } = useReadContracts({
+    contracts: [{
+      address: "0xdf7f30d131FC71539cee301C052F29810e586649",
+      functionName: 'isPaused',
+      abi: theMigrationAbi
+    }, {
+      address: "0xdf7f30d131FC71539cee301C052F29810e586649",
+      functionName: 'isBlackListed',
+      abi: theMigrationAbi,
+      args: [address]
+    }, {
+      address: "0xdf7f30d131FC71539cee301C052F29810e586649",
+      functionName: 'newToken',
+      abi: theMigrationAbi,
+    },
+    {
+      address: "0xdf7f30d131FC71539cee301C052F29810e586649",
+      functionName: 'oldToken',
+      abi: theMigrationAbi
+    },
+    {
+      address: "0xdf7f30d131FC71539cee301C052F29810e586649",
+      functionName: 'newTokenRatio',
+      abi: theMigrationAbi
+    },
+    {
+      address: "0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8",
+      functionName: 'allowance',
+      abi: MayoV1Abi,
+      args: [address, "0xdf7f30d131FC71539cee301C052F29810e586649"]
+    },
+    {
+      address: CONTRACT_ADDRESS_V2,
+      functionName: 'balanceOf',
+      abi: mayoV2Abi,
+      args: [address]
+    }
+    ]
+  })
+
+  const [isPaused, isBlackListed, newToken, oldToken, newTokenRatio, allowance, balanceOf] = data || []
+
+  const isMigrationPaused = isPaused?.result
+  const isUserBlacklisted = isBlackListed?.result
+  const oldTokenAddress = newToken?.result
+  const newTokenAddress = oldToken?.result
+  const migrationRatio = newTokenRatio?.result
+  const migrationAllowance = allowance?.result
+  const newTokenBalance = balanceOf?.result
+
+  // console.log(Number(migrationRatio));
+  
+
+  const { data: oldTokenDetails } = useBalance({
+    address: address,
+    token: '0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8',
+    unit: 'ether',
+  })
+
+
+
+  const { writeContractAsync } = useWriteContract()
+
+
+  const handleTokenMigration = async () => {
+
+    if (Number(migrationAllowance) < (Number(toAmount))) {
+      setIsExchangeBtnDisabled(true)
+      setButtonMessage('Approve Spending Cap')
+      // const ethValue = ethers.formatEther(String(migrationAllowance));
+      // const ethValue = ethers.formatEther(String(migrationAllowance));
+      // console.log(ethValue);
+      try {
+        const data = await writeContractAsync({
+          address: '0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8', // contract token address
+          functionName: 'approve',
+          abi: MayoV1Abi,
+          args: [
+            '0xdf7f30d131FC71539cee301C052F29810e586649', // contract wallet address
+            Number(toAmount) * (Math.pow(10, 6))
+          ]
+        })
+
+        if (data) {
+          setIsExchangeBtnDisabled(true)
+          setButtonMessage('Sign Migration Request')
+          try {
+            const data = await writeContractAsync({
+              address: '0xdf7f30d131FC71539cee301C052F29810e586649', // contract token address
+              functionName: 'migrateToMayoV2',
+              abi: theMigrationAbi,
+              args: [toAmount * (Math.pow(10, 6))]
+            })
+
+            if (data) {
+              setHash(data)
+              setShowLoader(true)
+            }
+          } catch (error) {
+            handleTransactionError(error)
+          }
+        }
+      } catch (error: any) {
+        handleTransactionError(error)
+      }
+
+
+    }
+    else {
+      setIsExchangeBtnDisabled(true)
+      try {
+        const data = await writeContractAsync({
+          address: '0xdf7f30d131FC71539cee301C052F29810e586649', // contract token address
+          functionName: 'migrateToMayoV2',
+          abi: theMigrationAbi,
+          args: [toAmount * (Math.pow(10, 6))]
+        })
+
+        if (data) {
+          setHash(data)
+          setShowLoader(true)
+        }
+      } catch (error) {
+        handleTransactionError(error)
+      }
+    }
+
   }
-  const handleExchange = () => {
 
-    // setProgressCount(10)
+  const handleTransactionError = (error: any) => {
+    if (error && error?.message) {
+      let errorMsg = ''
+      if (error.message.includes("User denied transaction")) {
+        errorMsg = "User denied transaction request.";
+      } else {
+        errorMsg = (`An error occurred while processing the transaction:, ${error.message}`);
+      }
 
-    if (progressCount < 100) {
-      const timer = setTimeout(() => {
-        setProgressCount(prevCount => prevCount + 20);
-      }, 1000);
-
-      // Clean up the timer when the component unmounts or when the effect is re-run
-      // return () => clearTimeout(timer);
+      if (errorMsg) {
+        toast.success(errorMsg, {
+          autoClose: 5000,
+          hideProgressBar: true,
+          progress: undefined,
+        })
+      }
+      setIsExchangeBtnDisabled(false)
+      setButtonMessage('Exchange')
     }
   }
+
+  const onClose = () => {
+    setButtonMessage('Exchange')
+    setAmount(0)
+    setToAmount(0)
+    setShowLoader(false)
+  }
+
+  React.useEffect(() => {
+
+    if (!isConnected) {
+      setIsExchangeBtnDisabled(true)
+    }
+    else {
+
+      if (isMigrationPaused) {
+        setIsExchangeBtnDisabled(true)
+        setButtonMessage('Migration is currently paused')
+        return
+      }
+      if (isUserBlacklisted) {
+        setIsExchangeBtnDisabled(true)
+        setButtonMessage('Wallet is blicklisted')
+        return
+      }
+      if (Number(oldTokenDetails?.formatted) <= 0 || (Number(oldTokenDetails?.formatted) && Number(toAmount) > Number(oldTokenDetails?.formatted))) {
+        setIsExchangeBtnDisabled(true)
+        setButtonMessage('Insufficient token balance')
+        return
+      }
+      if (Number(oldTokenDetails?.formatted) && Number(toAmount) < Number(oldTokenDetails?.formatted)) {
+        setIsExchangeBtnDisabled(false)
+        setButtonMessage('Exchange')
+      }
+
+      if (Number(toAmount)) {
+        if (Number(toAmount) > Number(oldTokenDetails?.formatted)) {
+          setIsExchangeBtnDisabled(true)
+        }
+        else {
+          setIsExchangeBtnDisabled(false)
+        }
+      }
+      else {
+        setIsExchangeBtnDisabled(true)
+      }
+
+    }
+  }, [isConnected, amount, toAmount, address])
+  React.useEffect(() => {
+
+    if (!isConnected) {
+      setToAmount(0)
+      setAmount(0)
+    }
+
+  }, [isConnected])
+
 
   return (
     <main className="flex flex-col p-3 bg-[#101011] rounded-3xl border border-10 shadow-md  border-[#1C1C1E] h-max">
@@ -342,13 +565,17 @@ const SwapComponent: React.FC = () => {
       <section className="flex flex-col mt-3 gap-[2px] relative">
         <InfoSection
           title="You Send"
-          balance="200k"
-          token="MAYO"
+          balance={Number(oldTokenDetails?.formatted) || 0}
+          token={oldTokenDetails?.symbol || "MAYO"}
           tokenAlt="Mayo Token"
           tokenSrc="/icons/mayo-avatar.svg"
           maxAction="Max"
           showMax={true}
-          onAmountChange={(amount: any) => setToAmount(amount)}
+          ratio={1}
+          onAmountChange={(amount: any) => {
+            setAmount(amount)
+            setToAmount(amount)
+          }}
         />
         <div className="absolute top-[43%] left-[45%] z-0 cursor-pointer">
           <Image
@@ -361,12 +588,13 @@ const SwapComponent: React.FC = () => {
         </div>
         <InfoSection
           title="You Receive"
-          balance={''}
-          toAmount={toAmount}
+          balance={0}
+          toAmount={toAmount * Number(migrationRatio) || 0}
           token="MAYO"
           tokenAlt="Mayo Token"
           tokenSrc="/icons/mayo-avatar-new.svg"
           maxAction=""
+          ratio={Number(migrationRatio) || 0}
           showMax={false}
           onAmountChange={(amount: any) => setToAmount(amount)}
         />
@@ -374,13 +602,12 @@ const SwapComponent: React.FC = () => {
       {
         isConnected ? <>
           <button
-            className={`${Geom.className} justify-center items-center p-2.5 py-3 mt-4 text-md md:text-md leading-5 text-[#FFF8E5] rounded-lg bg-[#8000E4]`}
+            className={`${Geom.className} disabled:opacity-[0.4] justify-center items-center p-2.5 py-3 mt-4 text-md md:text-md leading-5 text-[#FFF8E5] rounded-lg bg-[#8000E4]`}
             tabIndex={0}
-            onClick={() => {
-              setShowLoader(true)
-            }}
+            disabled={isExchangeBtnDisabled}
+            onClick={handleTokenMigration}
           >
-            Exchange
+            {buttonMessage}
           </button>
         </> : <>
           <button
@@ -411,7 +638,7 @@ const SwapComponent: React.FC = () => {
 
 
       {/*  */}
-      {showoader && <SwapLoading progress={progressCount} handleCLose={() => setShowLoader(false)} fromAmount={toAmount} toAmount={toAmount} />}
+      {showoader && <SwapLoading progress={progressCount} hash={hash} handleCLose={onClose} fromAmount={toAmount} toAmount={toAmount} />}
     </main>
   );
 };

@@ -27,7 +27,8 @@ export function WagmiProviders({ children }: { children: React.ReactNode }) {
         appUrl: 'https://www.mayobear.xyz/',
         projectId: 'd2300a43e737443584584ffb441e9ffa',
         chains: [
-            mainnet
+            mainnet,
+            sepolia
         ],
         ssr: true,
     });
