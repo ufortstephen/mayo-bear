@@ -82,7 +82,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
               className="w-4 h-4 cursor-pointer"
             />
           </div>
-          {showMax && <div className="flex gap-2 mt-3 text-xs text-right">
+          {showMax && <div className="flex gap-2 mt-3 text-xs text-right justify-end">
             <div className="text-[#636366]">Balance: {compactNumberFormatter(Number(balance))}</div>
             <button
               className={`bg-red-500 ${Montserrat.className} bg-clip-text bg-[linear-gradient(180deg,#BF72FA_0%,#BF72FA_100%,#fff_100%)] leading-[22px]`}
@@ -322,7 +322,7 @@ const SwapComponent: React.FC = () => {
   const newTokenBalance = balanceOf?.result
 
   // console.log(Number(migrationRatio));
-  
+
 
   const { data: oldTokenDetails } = useBalance({
     address: address,
@@ -357,21 +357,23 @@ const SwapComponent: React.FC = () => {
         if (data) {
           setIsExchangeBtnDisabled(true)
           setButtonMessage('Sign Migration Request')
-          try {
-            const data = await writeContractAsync({
-              address: '0xdf7f30d131FC71539cee301C052F29810e586649', // contract token address
-              functionName: 'migrateToMayoV2',
-              abi: theMigrationAbi,
-              args: [toAmount * (Math.pow(10, 6))]
-            })
+          setTimeout(async() => {
+            try {
+              const data = await writeContractAsync({
+                address: '0xdf7f30d131FC71539cee301C052F29810e586649', // contract token address
+                functionName: 'migrateToMayoV2',
+                abi: theMigrationAbi,
+                args: [toAmount * (Math.pow(10, 6))]
+              })
 
-            if (data) {
-              setHash(data)
-              setShowLoader(true)
+              if (data) {
+                setHash(data)
+                setShowLoader(true)
+              }
+            } catch (error) {
+              handleTransactionError(error)
             }
-          } catch (error) {
-            handleTransactionError(error)
-          }
+          }, 4000);
         }
       } catch (error: any) {
         handleTransactionError(error)
