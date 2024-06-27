@@ -111,12 +111,14 @@ const SwapLoading: React.FC<any> = ({
   handleCLose,
   fromAmount,
   toAmount,
-  hash
+  hash,
+  migrationRatio,
+  oldToken
 }) => {
   const { address, chain, isConnected } = useAccount();
   const [active, setActive] = React.useState(true);
   const [completed, setCompleted] = React.useState(false);
-
+  
   const { openConnectModal } = useConnectModal();
 
   const [count, setCount] = React.useState(1);
@@ -210,7 +212,7 @@ const SwapLoading: React.FC<any> = ({
               className="hide-events w-6 h-6 cursor-pointer"
             />
             <div className={`${Montserrat.className} cursor-pointer justify-center text-sm text-[#fff]`}>
-              {fromAmount} MAYO
+              {fromAmount} {oldToken?.symbol}
             </div>
           </div>
           <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -225,7 +227,7 @@ const SwapLoading: React.FC<any> = ({
               className="hide-events w-6 h-6 cursor-pointer"
             />
             <div className={`${Montserrat.className} cursor-pointer justify-center text-sm text-[#fff]`}>
-              {toAmount} MAYO
+              {toAmount * Number(migrationRatio)} MAYO
             </div>
           </div>
 
@@ -273,26 +275,26 @@ const SwapComponent: React.FC = () => {
     isPending
   } = useReadContracts({
     contracts: [{
-      address: "0xdf7f30d131FC71539cee301C052F29810e586649",
+      address: "0xB06965Ad2724536aF15193dDA4324cEeDd098474",
       functionName: 'isPaused',
       abi: theMigrationAbi
     }, {
-      address: "0xdf7f30d131FC71539cee301C052F29810e586649",
+      address: "0xB06965Ad2724536aF15193dDA4324cEeDd098474",
       functionName: 'isBlackListed',
       abi: theMigrationAbi,
       args: [address]
     }, {
-      address: "0xdf7f30d131FC71539cee301C052F29810e586649",
+      address: "0xB06965Ad2724536aF15193dDA4324cEeDd098474",
       functionName: 'newToken',
       abi: theMigrationAbi,
     },
     {
-      address: "0xdf7f30d131FC71539cee301C052F29810e586649",
+      address: "0xB06965Ad2724536aF15193dDA4324cEeDd098474",
       functionName: 'oldToken',
       abi: theMigrationAbi
     },
     {
-      address: "0xdf7f30d131FC71539cee301C052F29810e586649",
+      address: "0xB06965Ad2724536aF15193dDA4324cEeDd098474",
       functionName: 'newTokenRatio',
       abi: theMigrationAbi
     },
@@ -300,7 +302,7 @@ const SwapComponent: React.FC = () => {
       address: "0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8",
       functionName: 'allowance',
       abi: MayoV1Abi,
-      args: [address, "0xdf7f30d131FC71539cee301C052F29810e586649"]
+      args: [address, "0xB06965Ad2724536aF15193dDA4324cEeDd098474"]
     },
     {
       address: CONTRACT_ADDRESS_V2,
@@ -311,18 +313,18 @@ const SwapComponent: React.FC = () => {
     ]
   })
 
-  const [isPaused, isBlackListed, newToken, oldToken, newTokenRatio, allowance, balanceOf] = data || []
+  console.log(data);
+  
 
+  const [isPaused, isBlackListed, newToken, oldToken, newTokenRatio, allowance, balanceOf] = data || []  
+  
   const isMigrationPaused = isPaused?.result
   const isUserBlacklisted = isBlackListed?.result
   const oldTokenAddress = newToken?.result
   const newTokenAddress = oldToken?.result
   const migrationRatio = newTokenRatio?.result
   const migrationAllowance = allowance?.result
-  const newTokenBalance = balanceOf?.result
-
-  // console.log(Number(migrationRatio));
-
+  const newTokenBalance = balanceOf?.result  
 
   const { data: oldTokenDetails } = useBalance({
     address: address,
@@ -349,31 +351,31 @@ const SwapComponent: React.FC = () => {
           functionName: 'approve',
           abi: MayoV1Abi,
           args: [
-            '0xdf7f30d131FC71539cee301C052F29810e586649', // contract wallet address
+            '0xB06965Ad2724536aF15193dDA4324cEeDd098474', // contract wallet address
             Number(toAmount) * (Math.pow(10, 6))
           ]
         })
 
         if (data) {
-          setIsExchangeBtnDisabled(true)
-          setButtonMessage('Sign Migration Request')
-          setTimeout(async() => {
-            try {
-              const data = await writeContractAsync({
-                address: '0xdf7f30d131FC71539cee301C052F29810e586649', // contract token address
-                functionName: 'migrateToMayoV2',
-                abi: theMigrationAbi,
-                args: [toAmount * (Math.pow(10, 6))]
-              })
+          setIsExchangeBtnDisabled(false)
+          setButtonMessage('Exchange')
+          // setTimeout(async() => {
+          //   try {
+          //     const data = await writeContractAsync({
+          //       address: '0xB06965Ad2724536aF15193dDA4324cEeDd098474', // contract token address
+          //       functionName: 'migrateToMayoV2',
+          //       abi: theMigrationAbi,
+          //       args: [toAmount * (Math.pow(10, 6))]
+          //     })
 
-              if (data) {
-                setHash(data)
-                setShowLoader(true)
-              }
-            } catch (error) {
-              handleTransactionError(error)
-            }
-          }, 4000);
+          //     if (data) {
+          //       setHash(data)
+          //       setShowLoader(true)
+          //     }
+          //   } catch (error) {
+          //     handleTransactionError(error)
+          //   }
+          // }, 4000);
         }
       } catch (error: any) {
         handleTransactionError(error)
@@ -382,10 +384,12 @@ const SwapComponent: React.FC = () => {
 
     }
     else {
+      console.log('here');
+
       setIsExchangeBtnDisabled(true)
       try {
         const data = await writeContractAsync({
-          address: '0xdf7f30d131FC71539cee301C052F29810e586649', // contract token address
+          address: '0xB06965Ad2724536aF15193dDA4324cEeDd098474', // contract token address
           functionName: 'migrateToMayoV2',
           abi: theMigrationAbi,
           args: [toAmount * (Math.pow(10, 6))]
@@ -478,8 +482,7 @@ const SwapComponent: React.FC = () => {
       setAmount(0)
     }
 
-  }, [isConnected])
-
+  }, [isConnected])  
 
   return (
     <main className="flex flex-col p-3 bg-[#101011] rounded-3xl border border-10 shadow-md  border-[#1C1C1E] h-max">
@@ -619,28 +622,12 @@ const SwapComponent: React.FC = () => {
           >
             Connect Wallet
           </button>
-          {/* {!isWalletConnected ? <button
-            className={`${Geom.className} justify-center items-center p-2.5 mt-4 text-md leading-5 text-[#8000E4] rounded-lg bg-stone-950`}
-            tabIndex={0}
-            onClick={handleWalletConnect}
-          >
-            Connect Wallet
-          </button> : <button
-            className={`${Geom.className} justify-center items-center p-2.5 py-3 mt-4 text-md md:text-md leading-5 text-[#FFF8E5] rounded-lg bg-[#8000E4]`}
-            tabIndex={0}
-            onClick={() => {
-              setShowLoader(true)
-            }}
-          >
-            Exchange
-          </button>} */}
-
         </>
       }
 
 
       {/*  */}
-      {showoader && <SwapLoading progress={progressCount} hash={hash} handleCLose={onClose} fromAmount={toAmount} toAmount={toAmount} />}
+      {showoader && <SwapLoading progress={progressCount} hash={hash} handleCLose={onClose} fromAmount={toAmount} toAmount={toAmount} migrationRatio={migrationRatio} oldToken={oldTokenDetails} />}
     </main>
   );
 };
