@@ -158,7 +158,7 @@ function Hero() {
                 /> */}
                 <Image
 
-                    src={'/imgs/mayo-hero.png'}
+                    src={'/imgs/mayo-hero-2.png'}
                     alt={''}
                     className="object-contain object-center md:object-contain mx-auto h-full w-[90%] lg:w-[1112px] max-w-[1512px] scale-[1.08] opacity-0"
                     width={4096}
@@ -183,7 +183,7 @@ function Hero() {
 
             <div className="h-max  sm:hidden overflow-x-hidden relative z-10">
                 <Image
-                    src={'/imgs/mayobear-mobile-2.png'}
+                    src={'/imgs/mayo-mobile.png'}
                     alt={''}
                     className="hide-events object-cover overflow-visible mx-auto w-full h-full z-10 md:hidden"
                     width={1170}
@@ -203,7 +203,7 @@ function Hero() {
             </div>
 
             {/* <div className="absolute w-[317px] md:w-[494px] left-1/2 transform -translate-x-[51%] bottom-[23px] md:bottom-[20px]lg:bottom-[30px] xl:bottom-[0px] 2xl:bottom-[-36px] flex flex-col gap-[8px]"> */}
-            <div className="w-[317px] md:w-[494px] -mt-[226px] sm:-mt-[370px] lg:-mt-[400px]  mx-auto flex flex-col gap-[8px] relative z-50 sm:scale-[0.7] xl:scale-[1] mayo-hero-cta">
+            <div className="w-[90%] sm:-w-[317px] md:w-[494px] -mt-[226px] sm:-mt-[370px] lg:-mt-[400px]  mx-auto flex flex-col gap-[8px] relative z-50 sm:scale-[0.7] xl:scale-[1] mayo-hero-cta">
                 <MayoBtn />
                 <div className="flex gap-[24px] w-full justify-center">
                     <div className='cursor-pointer hover:opacity-80' onClick={() => {
@@ -305,12 +305,13 @@ function Info() {
             </div>
             <div className="flex flex-col px-[32px] lg:px-0 lg:flex-row w-full max-w-[982px] gap-[60px]  mx-auto relative">
                 <div
-                    className={`${Montserrat.className} pt-[30px] md:pt-0 text-[14px] font-[600] leading-[32px] text-[#FFFFFF] max-w-[720px]`}
+                    className={`${Montserrat.className} pt-[30px] md:pt-0 text-[15px] font-[600] leading-[32px] text-[#FFFFFF] max-w-[720px]`}
                 >
-                    Mayo Bear, the native AI-generated meme birthed by the Purple AI community, for the community to further elevate the PAIverse with a spread of MAYO, the special sauce that adds a new paradigm shift to memes, now with substance and protein. At the core of our endeavor is a love letter to the Purple AI community as a whole, along with bringing awareness to those who have not had the luxury to venture into the PAIverse.
+                    Mayo Bear, the native AI-generated meme birthed by the Purple AI community, for the community to further elevate the PAIverse and meme culture with a spread of MAYO, the special sauce that adds a new paradigm shift to the narrative, now with substance and a load of protein.
                     <br />
                     <br />
-                    Join our movement, for the culture as we employ the MAYO to bring this vision to reality. The era of frogs and dogs is coming to an end. We know exactly what you want and we are about to give you a load of it.
+
+                    Join our movement, for the culture as we employ the MAYO to bring this vision to reality. The era of frogs and dogs is coming to an end. We know exactly what you want and we are about to give you a load of it!
                     <div
                         onClick={() => {
                             window.open('https://t.me/MayoBearCoinETH', '_blank')
@@ -1051,7 +1052,7 @@ function Mayonomics() {
                 />
                 <TokenomicsItem
                     title="Buy & Sell Tax"
-                    description="2% to the LP"
+                    description="0% to the LP"
                 />
                 <TokenomicsItem
                     title="Contract Safety"

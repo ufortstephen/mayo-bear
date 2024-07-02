@@ -313,7 +313,6 @@ const SwapComponent: React.FC = () => {
     ]
   })
 
-  console.log(data);
   
 
   const [isPaused, isBlackListed, newToken, oldToken, newTokenRatio, allowance, balanceOf] = data || []  
@@ -384,7 +383,6 @@ const SwapComponent: React.FC = () => {
 
     }
     else {
-      console.log('here');
 
       setIsExchangeBtnDisabled(true)
       try {
@@ -432,14 +430,20 @@ const SwapComponent: React.FC = () => {
     setAmount(0)
     setToAmount(0)
     setShowLoader(false)
-  }
+  }  
 
   React.useEffect(() => {
 
     if (!isConnected) {
       setIsExchangeBtnDisabled(true)
+      return
     }
     else {
+      if (!Number(oldTokenDetails?.formatted)) {
+        setButtonMessage('Insufficient balance')
+        setIsExchangeBtnDisabled(true)
+        return
+      }
 
       if (isMigrationPaused) {
         setIsExchangeBtnDisabled(true)

@@ -14,7 +14,7 @@ export default function MayoBtn() {
                 //     progress: undefined,
                 // })
             }}
-            className="relative w-full h-[109px] flex items-center "
+            className="relative w-full h-[109px] flex -top-10 md:top-0 items-center "
         >
             <div className="w-full cursor-pointer z-10 align-middle px-[24px] py-[12px] md:text-center justify-center items-center h-[50px] rounded-[60px] bg-[linear-gradient(0deg,#8000E4_0%,#962DFE_100%)] flex gap-[10px]">
                 <div className="flex text-[10px] md:text-[16px] font-[400] text-white">
