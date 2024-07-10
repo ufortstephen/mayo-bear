@@ -443,6 +443,8 @@ const SwapComponent: React.FC = () => {
         setButtonMessage('Insufficient balance')
         setIsExchangeBtnDisabled(true)
         return
+      } else {
+        setButtonMessage('Exchamge')
       }
 
       if (isMigrationPaused) {
