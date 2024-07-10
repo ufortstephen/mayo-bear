@@ -58,3 +58,7 @@ img.hide-events,
 picture.hide-events {
     pointer-events: none;
 }
+
+.soundcloud-player iframe {
+    border-radius: 10px  !important;
+}

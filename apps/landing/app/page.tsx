@@ -6,6 +6,9 @@ import { Montserrat, Skincake } from '@/styles/fonts'
 import MayoBtn from '@/components/MayoBtn'
 import { CONTRACT_ADDRESS } from '@/consts'
 import MayoArtworks from '@/components/Artworks'
+import ReactPlayer from 'react-player'
+// import ReactSoundCloud from 'react-soundcloud-embedded'
+
 
 
 function Hero() {
@@ -363,7 +366,7 @@ function Info() {
                         <Image
                             width={22}
                             height={22}
-                            src={'/icons/tradingview.svg'}
+                            src={'/icons/binance-live.svg'}
                             alt={''} className='hide-events cursor-pointer w-[140px] md:w-[200px]'
 
                         />
@@ -1063,13 +1066,20 @@ function Mayonomics() {
     )
 }
 function SpotifyPlaylist() {
+    const [showPlayer, setShowplayer] = useState(false)
 
-
+    useEffect(() => {
+        setShowplayer(true)
+    }, [])
     return (
         <section className='relative w-full z-10'>
-            <div className="w-[85%] md:w-full max-w-[568px] md:min-w-[568px]  mx-auto border border-[20px] rounded-xl border-[#33005A] bg-[#8820e0] mt-[60px] relative z-20">
-                <iframe style={{ borderRadius: '20px' }} id='spotifyPlaylist' src="https://open.spotify.com/embed/playlist/7lWgJOMzCBTUFX0W8aQlW4?utm_source=generator" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
+            <section className="w-[85%] md:w-full max-w-[568px] md:min-w-[568px]  mx-auto border border-[20px] rounded-xl border-[#33005A] bg-[#33005A] mt-[60px] relative z-20 soundcloud-player" style={{borderRadius: '10px'}}>
+                {showPlayer && <ReactPlayer
+                width={'100%'}
+                    url="https://soundcloud.com/mayo-bear"
+                />}
+                {/* <iframe style={{ borderRadius: '20px' }} id='spotifyPlaylist' src="https://soundcloud.com/mayo-bear" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> */}
+            </section>
         </section>
 
     )
