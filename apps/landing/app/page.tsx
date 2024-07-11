@@ -344,7 +344,7 @@ function Info() {
                 <div
                     className={`${Skincake.className} text-[28px] font-[400] text-[#6700B7] text-center`}
                 >
-                    Places You May <br className='md:hidden' /> Have Seen Us
+                    Places You Will <br className='md:hidden' />  See Us On
                 </div>
                 <div className="flex flex-col items-center justify-between px-[32px] lg:px-0 lg:flex-row w-full max-w-[1024px] gap-10 md:gap-[60px] mx-auto pt-[40px]">
 
